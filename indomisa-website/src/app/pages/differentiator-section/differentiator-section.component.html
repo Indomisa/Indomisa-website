@@ -1,0 +1,52 @@
+<section class="relative py-24 overflow-hidden font-inter">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgba(120,80,255,0.08),transparent)]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <p class="uppercase tracking-[0.3em] text-accent text-sm font-semibold mb-4">
+          Why Choose Us
+        </p>
+
+        <h2 class="font-syne text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
+          We build with your business in mind.
+        </h2>
+
+        <p class="text-muted-foreground text-lg leading-relaxed mb-8">
+          Our approach combines business analysis, clean design, and practical engineering to create software that works in the real world.
+        </p>
+
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center rounded-full px-8 py-4 bg-gradient-to-r from-primary to-fuchsia-500 text-white font-semibold shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all">
+          Start a Conversation
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        @for (item of differentiators; track item.title) {
+          <article
+            class="rounded-3xl border border-border/40 bg-card/50 backdrop-blur-xl p-7 transition-all duration-300 hover:-translate-y-2 hover:border-primary/40 hover:bg-card/80">
+
+            <div
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-fuchsia-500/20 text-2xl border border-primary/20">
+              {{ item.icon }}
+            </div>
+
+            <h3 class="font-syne text-xl font-bold text-foreground mb-3">
+              {{ item.title }}
+            </h3>
+
+            <p class="text-muted-foreground text-sm leading-relaxed">
+              {{ item.description }}
+            </p>
+
+          </article>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

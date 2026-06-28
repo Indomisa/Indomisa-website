@@ -1,0 +1,21 @@
+:host {
+    display: block;
+}
+
+input,
+textarea,
+select {
+
+    transition: all .25s ease;
+
+    &:focus {
+
+        outline: none;
+
+        border-color: hsl(var(--primary));
+
+        box-shadow: 0 0 0 3px hsla(var(--primary), .15);
+
+    }
+
+}

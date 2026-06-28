@@ -1,0 +1,94 @@
+<section
+    class="relative py-24 overflow-hidden">
+
+    <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(120,80,255,0.08),transparent)]">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+
+            <span
+                class="uppercase tracking-[0.3em] text-accent text-sm font-semibold">
+
+                OUR IMPACT
+
+            </span>
+
+            <h2
+                class="font-syne text-5xl font-bold mt-4 mb-6">
+
+                Delivering Results That Matter
+
+            </h2>
+
+            <p
+                class="max-w-3xl mx-auto text-lg text-muted-foreground">
+
+                Every project is focused on creating measurable value through
+                scalable software, automation, and exceptional user experiences.
+
+            </p>
+
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            @for(stat of stats; track stat.label){
+
+            <div
+                class="rounded-3xl
+                       border
+                       border-border/40
+                       bg-card/50
+                       backdrop-blur-xl
+                       p-8
+                       text-center
+                       transition-all
+                       duration-300
+                       hover:border-primary/40
+                       hover:-translate-y-2">
+
+                <h3
+                    class="font-syne
+                           text-5xl
+                           font-bold
+                           bg-gradient-to-r
+                           from-primary
+                           to-fuchsia-500
+                           bg-clip-text
+                           text-transparent
+                           mb-4">
+
+                    {{stat.value}}
+
+                </h3>
+
+                <h4
+                    class="text-xl
+                           font-semibold
+                           mb-3">
+
+                    {{stat.label}}
+
+                </h4>
+
+                <p
+                    class="text-muted-foreground
+                           text-sm
+                           leading-relaxed">
+
+                    {{stat.description}}
+
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>

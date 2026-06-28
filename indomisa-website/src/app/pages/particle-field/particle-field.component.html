@@ -1,0 +1,13 @@
+<div class="pointer-events-none absolute inset-0 overflow-hidden">
+  @for (particle of particles; track $index) {
+    <span
+      class="particle absolute rounded-full bg-primary/40 blur-sm"
+      [style.width.px]="particle.size"
+      [style.height.px]="particle.size"
+      [style.top.%]="particle.top"
+      [style.left.%]="particle.left"
+      [style.animation-delay.s]="particle.delay"
+      [style.animation-duration.s]="particle.duration">
+    </span>
+  }
+</div>

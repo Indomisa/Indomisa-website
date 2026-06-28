@@ -1,0 +1,68 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-inter"
+  [ngClass]="{
+    'bg-transparent': !scrolled(),
+    'bg-background/80 backdrop-blur-2xl border-b border-border/40 shadow-xl shadow-background/20': scrolled()
+  }">
+
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+    <a href="#" class="flex items-center gap-2.5 group">
+      <img src="../../../assets/logo.svg" alt="Logo" class="w-80 h-40 transition-transform duration-300 group-hover:rotate-[20deg]" />
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      @for (link of links; track link.label) {
+        <a
+          [href]="link.href"
+          class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
+          {{ link.label }}
+        </a>
+      }
+
+      <a href="#contact">
+        <button
+          class="rounded-full px-6 py-2 bg-gradient-to-r from-primary to-fuchsia-500 shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all">
+          Get Started
+        </button>
+      </a>
+    </div>
+
+    <button
+      class="md:hidden text-foreground"
+      type="button"
+      (click)="toggleMenu()">
+      @if (!mobileOpen()) {
+        ☰
+      } @else {
+        ✕
+      }
+    </button>
+
+  </div>
+
+  @if (mobileOpen()) {
+    <div class="md:hidden bg-background/95 backdrop-blur-2xl border-b border-border/40 overflow-hidden">
+      <div class="px-6 py-5 space-y-3">
+
+        @for (link of links; track link.label) {
+          <a
+            [href]="link.href"
+            (click)="closeMenu()"
+            class="block text-muted-foreground hover:text-foreground py-2">
+            {{ link.label }}
+          </a>
+        }
+
+        <a href="#contact" (click)="closeMenu()">
+          <button
+            class="rounded-full w-full mt-2 py-2 bg-gradient-to-r from-primary to-fuchsia-500">
+            Get Started
+          </button>
+        </a>
+
+      </div>
+    </div>
+  }
+
+</nav>
