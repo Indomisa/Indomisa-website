@@ -17,6 +17,7 @@ jobs:
   build:
     name: Build Angular App
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: ./indomisa-website
@@ -25,16 +26,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Add CNAME
-        run: echo "indomisa.it.com" > ./indomisa-website/dist/indomisa/browser/CNAME
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: indomisa-website/package-lock.json
-
 
       - name: Install dependencies
         run: npm ci
@@ -44,12 +41,15 @@ jobs:
           sed -i "s|__WEB3FORMS_ACCESS_KEY__|${{ secrets.WEB3FORMS_ACCESS_KEY }}|g" src/environments/environment.prod.ts
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href /indomisa-website/
+        run: npm run build -- --configuration production --base-href /
+
+      - name: Add CNAME
+        run: echo "indomisa.it.com" > dist/indomisa/browser/CNAME
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/indomisa/browser
+          path: indomisa-website/dist/indomisa/browser
 
   deploy:
     name: Deploy to GitHub Pages
