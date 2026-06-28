@@ -25,6 +25,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Add CNAME
+        run: echo "indomisa.it.com" > ./indomisa-website/dist/indomisa/browser/CNAME
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
