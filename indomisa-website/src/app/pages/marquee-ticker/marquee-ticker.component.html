@@ -1,0 +1,19 @@
+<div class="relative overflow-hidden border-y border-border/40 bg-card/30 py-4 font-inter">
+  <div class="marquee-track flex w-max items-center gap-10 whitespace-nowrap">
+    @for (item of items; track item) {
+      <span class="text-sm md:text-base text-muted-foreground">
+        {{ item }}
+      </span>
+
+      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+    }
+
+    @for (item of items; track item) {
+      <span class="text-sm md:text-base text-muted-foreground">
+        {{ item }}
+      </span>
+
+      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+    }
+  </div>
+</div>

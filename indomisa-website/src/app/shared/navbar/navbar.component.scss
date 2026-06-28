@@ -1,0 +1,10 @@
+:host {
+    display: block;
+}
+
+nav {
+    transition:
+        background-color .4s ease,
+        backdrop-filter .4s ease,
+        box-shadow .4s ease;
+}

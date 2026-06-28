@@ -1,0 +1,19 @@
+:host {
+    display: block;
+}
+
+div[class*="rounded-3xl"] {
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+}
+
+div[class*="rounded-3xl"]:hover {
+
+    box-shadow:
+        0 20px 45px rgba(99, 102, 241, .18);
+
+}

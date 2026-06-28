@@ -1,0 +1,41 @@
+<section id="services" class="relative py-24 overflow-hidden font-inter">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(120,80,255,0.06),transparent)]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="uppercase tracking-[0.3em] text-accent text-sm font-semibold mb-4">
+        Services
+      </p>
+
+      <h2 class="font-syne text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
+        Digital solutions built for your business
+      </h2>
+
+      <p class="max-w-3xl mx-auto text-muted-foreground text-lg leading-relaxed">
+        We help small and medium businesses design, build, and maintain custom software that improves operations,
+        reduces manual work, and supports growth.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (service of services; track service.title) {
+        <article
+          class="group rounded-3xl border border-border/40 bg-card/50 backdrop-blur-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary/40 hover:bg-card/80">
+
+          <div
+            class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-fuchsia-500/20 text-3xl border border-primary/20 group-hover:scale-110 transition-transform">
+            {{ service.icon }}
+          </div>
+
+          <h3 class="font-syne text-2xl font-bold text-foreground mb-4">
+            {{ service.title }}
+          </h3>
+
+          <p class="text-muted-foreground leading-relaxed">
+            {{ service.description }}
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

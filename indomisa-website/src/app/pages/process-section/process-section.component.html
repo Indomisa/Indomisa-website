@@ -1,0 +1,131 @@
+<section
+    id="process"
+    class="relative py-24 overflow-hidden">
+
+    <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(120,80,255,0.06),transparent)]">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-20">
+
+            <span
+                class="uppercase tracking-[0.3em] text-accent text-sm font-semibold">
+
+                OUR PROCESS
+
+            </span>
+
+            <h2
+                class="font-syne text-5xl font-bold mt-4 mb-6">
+
+                How We Deliver Success
+
+            </h2>
+
+            <p
+                class="text-muted-foreground max-w-3xl mx-auto text-lg">
+
+                Every successful project follows a proven process that ensures
+                quality, transparency, and exceptional results.
+
+            </p>
+
+        </div>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+
+            @for(step of steps; track step.number){
+
+            <div
+                class="relative">
+
+                <div
+                    class="rounded-3xl
+                           border
+                           border-border/40
+                           bg-card/50
+                           backdrop-blur-xl
+                           p-8
+                           h-full
+                           transition-all
+                           duration-300
+                           hover:border-primary/40
+                           hover:-translate-y-2">
+
+                    <div
+                        class="w-16
+                               h-16
+                               rounded-2xl
+                               bg-gradient-to-br
+                               from-primary
+                               to-fuchsia-500
+                               flex
+                               items-center
+                               justify-center
+                               text-3xl
+                               mb-6">
+
+                        {{step.icon}}
+
+                    </div>
+
+                    <div
+                        class="text-primary
+                               text-sm
+                               font-bold
+                               tracking-widest
+                               mb-3">
+
+                        STEP {{step.number}}
+
+                    </div>
+
+                    <h3
+                        class="text-2xl
+                               font-bold
+                               font-syne
+                               mb-4">
+
+                        {{step.title}}
+
+                    </h3>
+
+                    <p
+                        class="text-muted-foreground
+                               leading-relaxed">
+
+                        {{step.description}}
+
+                    </p>
+
+                </div>
+
+                @if(!$last){
+
+                <div
+                    class="hidden
+                           lg:block
+                           absolute
+                           top-20
+                           left-full
+                           w-8
+                           h-0.5
+                           bg-gradient-to-r
+                           from-primary
+                           to-transparent">
+
+                </div>
+
+                }
+
+            </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,49 @@
+<section id="testimonials" class="relative py-24 overflow-hidden font-inter">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(120,80,255,0.06),transparent)]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-16">
+      <p class="uppercase tracking-[0.3em] text-accent text-sm font-semibold mb-4">
+        Testimonials
+      </p>
+
+      <h2 class="font-syne text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
+        Trusted by growing businesses
+      </h2>
+
+      <p class="max-w-3xl mx-auto text-muted-foreground text-lg leading-relaxed">
+        We partner with clients to build digital products that improve operations, reduce manual work,
+        and create measurable business value.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <article
+          class="rounded-3xl border border-border/40 bg-card/50 backdrop-blur-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary/40 hover:bg-card/80">
+
+          <div class="text-primary text-5xl font-syne leading-none mb-6">
+            “
+          </div>
+
+          <p class="text-muted-foreground leading-relaxed mb-8">
+            {{ testimonial.quote }}
+          </p>
+
+          <div class="border-t border-border/40 pt-6">
+            <h3 class="font-semibold text-foreground">
+              {{ testimonial.name }}
+            </h3>
+
+            <p class="text-sm text-muted-foreground mt-1">
+              {{ testimonial.role }}, {{ testimonial.company }}
+            </p>
+          </div>
+
+        </article>
+      }
+    </div>
+
+  </div>
+</section>
