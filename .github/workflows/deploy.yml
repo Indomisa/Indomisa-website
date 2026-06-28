@@ -17,6 +17,9 @@ jobs:
   build:
     name: Build Angular App
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./indomise-website
 
     steps:
       - name: Checkout code
