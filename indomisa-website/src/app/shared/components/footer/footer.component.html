@@ -1,0 +1,57 @@
+<footer class="bg-card/50 border-t border-border/40 font-inter">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+      <!-- Brand -->
+      <div class="md:col-span-1">
+        <a href="/" class="inline-flex items-center mb-5">
+          <img
+            src="assets/logo.png"
+            alt="Indomisa Consulting"
+            class="h-24 w-auto object-contain" />
+        </a>
+
+        <p class="text-muted-foreground text-sm leading-relaxed max-w-xs">
+          Empowering small and medium businesses with world-class custom application development.
+        </p>
+      </div>
+
+      <!-- Links -->
+      @for (group of footerLinks; track group.title) {
+        <div>
+          <h4 class="font-semibold text-sm text-foreground mb-5">
+            {{ group.title }}
+          </h4>
+
+          <ul class="space-y-3">
+            @for (link of group.links; track link) {
+              <li>
+                <a
+                  href="#{{link | lowercase}}"
+                  class="text-muted-foreground hover:text-foreground text-sm transition-colors">
+                  {{ link }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+
+    </div>
+
+    <div class="border-t border-border/40 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <p class="text-muted-foreground text-sm">
+        © 2026 Indomisa Consulting (PTY) LTD. All rights reserved.
+      </p>
+
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+        <span class="text-muted-foreground text-xs">
+          All systems operational
+        </span>
+      </div>
+    </div>
+
+  </div>
+</footer>

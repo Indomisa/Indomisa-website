@@ -9,6 +9,7 @@ import {
 import { MailService } from '../../services/mail.service';
 import { SERVICES } from './config/service-config';
 import { ContactMailRequest } from './model/contact-mail-request';
+import { genericType } from '../../shared/model/generic-type';
 
 @Component({
   selector: 'app-contact',
@@ -28,10 +29,7 @@ export class ContactComponent {
   loading = signal(false);
   submitted = signal(false);
 
-  services: string[] = ['Web Development',
-    'Mobile Development',
-    'Cloud Solutions',
-    'AI & Automation'];
+  services: genericType[]  = SERVICES;
 
   readonly contactForm: FormGroup = this.fb.nonNullable.group({
     name: [''],
@@ -41,7 +39,7 @@ export class ContactComponent {
       Validators.email
     ]],
     phone: [''],
-    service: [''],
+    service: [this.services.length > 0 ? this.services[0].title : ''],
     message: ['', [
       Validators.required,
       Validators.minLength(20)

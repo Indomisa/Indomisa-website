@@ -135,9 +135,9 @@
                     <select formControlName="service"
                         class="w-full rounded-xl bg-background border border-border px-4 py-3">
 
-                        @for (service of services; track service) {
+                        @for (service of services; track service.title) {
                         <option>
-                            {{ services }}
+                            {{ service.title }}
                         </option>
                         }
                     </select>

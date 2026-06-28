@@ -26,7 +26,6 @@ export class NavbarComponent {
     { label: 'Services', href: '#services' },
     { label: 'Process', href: '#process' },
     { label: 'About', href: '#about' },
-    { label: 'Testimonials', href: '#testimonials' }
   ];
 
   @HostListener('window:scroll')

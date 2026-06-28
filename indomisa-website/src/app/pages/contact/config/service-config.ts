@@ -1,6 +1,8 @@
-export const SERVICES: string[] = [
-    'Web Development',
-    'Mobile Development',
-    'Cloud Solutions',
-    'AI & Automation'
-]
+import { genericType } from "../../../shared/model/generic-type";
+
+export const SERVICES: genericType[] = [
+    { title: 'Web Development' },
+    { title: 'Mobile Development' },
+    { title: 'Cloud Solutions' },
+    { title: 'AI & Automation' }
+];
