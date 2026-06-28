@@ -8,19 +8,27 @@ jobs:
   build:
     name: Build Angular App
     runs-on: ubuntu-latest
+
     defaults:
       run:
-        working-directory: ./indomisa-website
-    
+        working-directory: indomisa-website
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Debug directory
+        run: |
+          pwd
+          ls -la
+          ls -la ..
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: indomisa-website/package-lock.json
 
       - name: Install dependencies
         run: npm ci
