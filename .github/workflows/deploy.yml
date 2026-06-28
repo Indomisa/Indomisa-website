@@ -38,7 +38,7 @@ jobs:
 
       - name: Inject Web3Forms key
         run: |
-          sed -i "s|__WEB3FORMS_ACCESS_KEY__|${{ secrets.WEB3FORMS_ACCESS_KEY }}|g" src/environments/environment.prod.ts
+          sed -i "s|__WEB3FORMS_ACCESS_KEY__|${{ secrets.WEB3FORMS_ACCESS_KEY }}|g" src/environment/environment.prod.ts
 
       - name: Build Angular app
         run: npm run build -- --configuration production --base-href /
