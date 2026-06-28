@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./indomise-website
+        working-directory: ./indomisa-website
     
     steps:
       - name: Checkout code
