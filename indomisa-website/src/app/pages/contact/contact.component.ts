@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { MailService } from '../../services/mail.service';
 import { SERVICES } from './config/service-config';
+import { ContactMailRequest } from './model/contact-mail-request';
 
 @Component({
   selector: 'app-contact',
@@ -60,15 +61,13 @@ export class ContactComponent {
     this.loading.set(true);
 
 
-    const payload = {
+    const payload: ContactMailRequest = {
       name: this.contactForm.get('name')?.value,
       company: this.contactForm.get('company')?.value,
       email: this.contactForm.get('email')?.value,
       phone: this.contactForm.get('phone')?.value,
       service: this.contactForm.get('service')?.value,
       message: this.contactForm.get('message')?.value,
-      access_key: 'd5e59142-daca-4d68-9601-35f63a980cb2',
-      subject: 'New Submission from Website Contact Form'
     };
 
     this.mailService.sendContactMail(payload).subscribe({

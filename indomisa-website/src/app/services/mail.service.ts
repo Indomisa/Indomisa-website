@@ -1,15 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environment/environment';
+import { ContactMailRequest } from '../pages/contact/model/contact-mail-request';
 
-export interface ContactMailRequest {
-  name: string | null;
-  company: string | null;
-  email: string | null;
-  phone: string | null;
-  service: string | null;
-  message: string | null;
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +13,7 @@ export class MailService {
   private http = inject(HttpClient);
 
   private readonly endpoint = 'https://api.web3forms.com/submit';
-  private readonly accessKey = 'd5e59142-daca-4d68-9601-35f63a980cb2';
+  private readonly accessKey = environment.web3formsAccessKey;
 
   sendContactMail(formValue: ContactMailRequest): Observable<unknown> {
     const payload = {
