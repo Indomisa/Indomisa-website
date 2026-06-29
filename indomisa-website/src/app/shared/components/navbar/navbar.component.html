@@ -1,26 +1,19 @@
-<nav
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-inter"
-  [ngClass]="{
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-inter" [ngClass]="{
     'bg-transparent': !scrolled(),
     'bg-background/80 backdrop-blur-2xl border-b border-border/40 shadow-xl shadow-background/20': scrolled()
   }">
 
   <div class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
 
-<a href="/" class="flex items-center">
-<img
-    src="assets/logo.png"
-    alt="Indomisa"
-    class="h-24 w-auto object-contain">
-</a>
+    <a href="/" class="flex items-center">
+      <img src="assets/logo_no_caption.png" alt="Indomisa" class="h-20 w-auto object-contain">
+    </a>
 
     <div class="hidden md:flex items-center gap-8">
       @for (link of links; track link.label) {
-        <a
-          [href]="link.href"
-          class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
-          {{ link.label }}
-        </a>
+      <a [href]="link.href" class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
+        {{ link.label }}
+      </a>
       }
 
       <a href="#contact">
@@ -31,7 +24,7 @@
       </a>
     </div>
 
-    <button
+    <!-- <button
       class="md:hidden text-foreground"
       type="button"
       (click)="toggleMenu()">
@@ -66,6 +59,7 @@
 
       </div>
     </div>
-  }
+  } -->
+  </div>
 
 </nav>
