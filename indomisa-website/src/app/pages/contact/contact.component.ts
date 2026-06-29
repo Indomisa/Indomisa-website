@@ -10,6 +10,7 @@ import { MailService } from '../../services/mail.service';
 import { SERVICES } from './config/service-config';
 import { ContactMailRequest } from './model/contact-mail-request';
 import { genericType } from '../../shared/model/generic-type';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-contact',
@@ -25,11 +26,12 @@ export class ContactComponent {
 
   private fb = inject(FormBuilder);
   private mailService = inject(MailService);
+  private analytics = inject(AnalyticsService);
 
   loading = signal(false);
   submitted = signal(false);
 
-  services: genericType[]  = SERVICES;
+  services: genericType[] = SERVICES;
 
   readonly contactForm: FormGroup = this.fb.nonNullable.group({
     name: [''],
@@ -48,7 +50,6 @@ export class ContactComponent {
 
   submit(): void {
 
-    console.log('Form submitted:', this.contactForm.value);
     if (this.contactForm.invalid) {
 
       this.contactForm.markAllAsTouched();
@@ -70,6 +71,9 @@ export class ContactComponent {
 
     this.mailService.sendContactMail(payload).subscribe({
       next: (response) => {
+        this.analytics.track('contact_form_submit', {
+          service: payload.service || undefined
+        });
         this.loading.set(false);
         this.submitted.set(true);
         this.contactForm.reset();
