@@ -28,7 +28,7 @@
             @for (link of group.links; track link) {
               <li>
                 <a
-                  href="#{{link | lowercase}}"
+                  routerLink="/{{link | lowercase}}"
                   class="text-muted-foreground hover:text-foreground text-sm transition-colors">
                   {{ link }}
                 </a>

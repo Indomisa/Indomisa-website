@@ -1,5 +1,6 @@
 import { LowerCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 interface FooterLinkGroup {
   title: string;
@@ -9,7 +10,7 @@ interface FooterLinkGroup {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [LowerCasePipe],
+  imports: [LowerCasePipe, RouterLink],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })

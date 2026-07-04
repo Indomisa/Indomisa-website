@@ -1,68 +1,101 @@
-<section id="about" class="relative py-24 overflow-hidden font-inter">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(120,80,255,0.07),transparent)]"></div>
+<section id="about-page" class="about-page">
+  <div class="container">
+    <section class="hero-section">
+      <span class="section-label">ABOUT INDIMOSA</span>
 
-  <div class="relative max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <h1>We build software that helps businesses work smarter.</h1>
 
-      <div>
-        <p class="text-accent text-sm font-semibold mb-4 uppercase tracking-widest">
-          About Us
+      <p>
+        Indomisa Consulting designs and develops custom digital solutions for SMEs,
+        helping teams automate manual work, improve operations, and deliver better
+        customer experiences.
+      </p>
+    </section>
+
+    <section class="stats-grid">
+      @for (stat of stats; track stat.label) {
+        <article class="stat-card">
+          <h2>{{ stat.value }}</h2>
+          <p>{{ stat.label }}</p>
+        </article>
+      }
+    </section>
+
+    <section class="content-section">
+      <span class="section-label">WHY US</span>
+      <h2>Why businesses choose Indomisa</h2>
+
+      <div class="cards-grid">
+        @for (item of whyUs; track item.title) {
+          <article class="info-card">
+            <div class="icon-dot"></div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+    <!-- TODO: Update this with actual featured work content -->
+    <!-- <section class="content-section">
+      <span class="section-label">FEATURED WORK</span>
+      <h2>Solutions we can build</h2>
+
+      <div class="featured-grid">
+        @for (work of featuredWork; track work.title) {
+          <article class="work-card">
+            <span>{{ work.category }}</span>
+            <h3>{{ work.title }}</h3>
+            <p>{{ work.description }}</p>
+            <a [routerLink]="work.link">View Service</a>
+          </article>
+        }
+      </div>
+    </section> -->
+
+    <!-- TODO: Integrate Google Reviews or manually update this section -->
+    <!-- <section class="content-section reviews-section">
+      <span class="section-label">GOOGLE REVIEWS</span>
+      <h2>What clients say about us</h2>
+
+      <article class="review-card">
+        <div class="stars" aria-label="5 star review">★★★★★</div>
+        <p>
+          “Professional, responsive, and practical. Indomisa helped us understand
+          exactly what software solution our business needed.”
         </p>
+        <strong>Google Review</strong>
+      </article>
+    </section> -->
 
-        <h2 class="text-4xl md:text-5xl font-bold font-syne tracking-tight mb-6 text-foreground">
-          We build software that helps businesses work smarter.
-        </h2>
+    <section class="content-section faq-contact-section">
+      <div class="faq">
+        <span class="section-label">FAQ</span>
+        <h2>Frequently asked questions</h2>
 
-        <p class="text-muted-foreground text-lg leading-relaxed mb-8">
-          Indomisa Consulting partners with businesses to design and develop custom web and mobile applications that improve operations, automate manual work, and create better digital experiences.
-        </p>
+        @for (faq of faqs; track faq.question; let i = $index) {
+          <article class="faq-item">
+            <button type="button" (click)="toggleFaq(i)">
+              <span>{{ faq.question }}</span>
+              <span>{{ activeFaq === i ? '−' : '+' }}</span>
+            </button>
 
-        <div class="space-y-5">
-          @for (point of points; track point.title) {
-            <div class="flex gap-4">
-              <div class="mt-1 w-3 h-3 rounded-full bg-accent shrink-0"></div>
-
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  {{ point.title }}
-                </h3>
-
-                <p class="text-muted-foreground text-sm leading-relaxed">
-                  {{ point.description }}
-                </p>
-              </div>
-            </div>
-          }
-        </div>
+            @if (activeFaq === i) {
+              <p>{{ faq.answer }}</p>
+            }
+          </article>
+        }
       </div>
 
-      <div class="relative">
-        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 to-fuchsia-500/20 blur-2xl"></div>
+      <aside class="contact-box">
+        <span class="section-label">CONTACT US</span>
+        <h2>Ready to build your solution?</h2>
+        <p>
+          Tell us what your business needs, and we will help you plan a practical
+          MVP or full software solution.
+        </p>
 
-        <div class="relative rounded-3xl border border-border/50 bg-card/80 backdrop-blur-xl p-8 shadow-2xl">
-          <div class="grid grid-cols-2 gap-4">
-
-            <div class="rounded-2xl bg-primary/10 border border-primary/20 p-6">
-              <p class="text-4xl font-bold font-syne text-primary mb-2">7+</p>
-              <p class="text-sm text-muted-foreground">Years Combined Experience</p>
-            </div>
-
-            <div class="rounded-2xl bg-accent/15 border border-cyan-500/20 p-6">
-              <p class="text-4xl font-bold font-syne text-accent mb-2">24/7</p>
-              <p class="text-sm text-muted-foreground">Reliable Digital Support</p>
-            </div>
-
-            <div class="rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 p-6 col-span-2">
-              <p class="text-4xl font-bold font-syne text-fuchsia-400 mb-2">100%</p>
-              <p class="text-sm text-muted-foreground">
-                Custom-built solutions aligned to your business processes.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
+        <a routerLink="/contact" class="primary-btn">Contact Us</a>
+      </aside>
+    </section>
   </div>
 </section>

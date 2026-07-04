@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Stat } from './model/stat';
 import { STAT_CONFIG } from './config/stat-config';
+import { Stat } from '../../shared/model/stat';
 
 
 
