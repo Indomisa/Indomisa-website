@@ -1,16 +1,17 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
-  FormGroup,
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
 import { MailService } from '../../services/mail.service';
-import { SERVICES } from './config/service-config';
 import { ContactMailRequest } from './model/contact-mail-request';
-import { genericType } from '../../shared/model/generic-type';
 import { AnalyticsService } from '../../services/analytics.service';
+import { PROJECT_TYPE_CONFIG } from './config/project-type.config';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { GenericOption } from '../../shared/model/generic-option.model';
+import { PROJECT_SCALE_CONFIG } from './config/project-scale.config';
 
 @Component({
   selector: 'app-contact',
@@ -24,62 +25,90 @@ import { AnalyticsService } from '../../services/analytics.service';
 })
 export class ContactComponent {
 
-  private fb = inject(FormBuilder);
+  private formBuilder = inject(FormBuilder);
   private mailService = inject(MailService);
   private analytics = inject(AnalyticsService);
 
-  loading = signal(false);
-  submitted = signal(false);
+  protected readonly currentStep = signal(1);
 
-  services: genericType[] = SERVICES;
+  protected readonly projectTypes: GenericOption[] = PROJECT_TYPE_CONFIG;
 
-  readonly contactForm: FormGroup = this.fb.nonNullable.group({
-    name: [''],
-    company: [''],
-    email: ['', [
-      Validators.required,
-      Validators.email
-    ]],
-    phone: [''],
-    service: [this.services.length > 0 ? this.services[0].title : ''],
-    message: ['', [
-      Validators.required,
-      Validators.minLength(20)
-    ]]
+  protected readonly projectScales: GenericOption[] = PROJECT_SCALE_CONFIG;
+
+  protected readonly contactForm = this.formBuilder.nonNullable.group({
+    projectType: ['', Validators.required],
+    projectScale: ['', Validators.required],
+    businessName: [''],
+    whatsappNumber: [
+      '',
+      [Validators.required, Validators.pattern(/^(\+27|0)[6-8][0-9]{8}$/)],
+    ],
+    email: ['', Validators.email],
   });
+
+  protected readonly progress = computed(() => `${(this.currentStep() / 3) * 100}%`);
+
+  protected readonly googleMapUrl: SafeResourceUrl;
+
+  constructor(private readonly sanitizer: DomSanitizer) {
+    this.googleMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.google.com/maps?q=Johannesburg,South%20Africa&output=embed'
+    );
+  }
+
+  protected selectProjectType(value: string): void {
+    this.contactForm.controls.projectType.setValue(value);
+    this.nextStep();
+  }
+
+  protected selectProjectScale(value: string): void {
+    this.contactForm.controls.projectScale.setValue(value);
+    this.nextStep();
+  }
+
+  protected nextStep(): void {
+    if (this.currentStep() < 4) {
+      this.currentStep.update((step) => step + 1);
+    }
+  }
+
+  protected previousStep(): void {
+    if (this.currentStep() > 1) {
+      this.currentStep.update((step) => step - 1);
+    }
+  }
+
 
   submit(): void {
 
     if (this.contactForm.invalid) {
-
+        console.log('Form is invalid:', this.contactForm.errors);
       this.contactForm.markAllAsTouched();
 
       return;
     }
 
-    this.loading.set(true);
+    // this.loading.set(true);
 
 
     const payload: ContactMailRequest = {
-      name: this.contactForm.get('name')?.value,
-      company: this.contactForm.get('company')?.value,
-      email: this.contactForm.get('email')?.value,
-      phone: this.contactForm.get('phone')?.value,
-      service: this.contactForm.get('service')?.value,
-      message: this.contactForm.get('message')?.value,
+      projectType: this.contactForm.get('projectType')?.value,
+      projectScale: this.contactForm.get('projectScale')?.value,
+      businessName: this.contactForm.get('businessName')?.value,
+      whatsappNumber: this.contactForm.get('whatsappNumber')?.value,
     };
 
     this.mailService.sendContactMail(payload).subscribe({
       next: (response) => {
         this.analytics.track('contact_form_submit', {
-          service: payload.service || undefined
+          service: payload.projectType || undefined
         });
-        this.loading.set(false);
-        this.submitted.set(true);
+        // this.loading.set(false);
+        // this.submitted.set(true);
         this.contactForm.reset();
       },
       error: (error) => {
-        this.loading.set(false);
+        // this.loading.set(false);
         alert('There was an error submitting the form. Please try again later.');
         console.error('Error submitting form:', error);
       }

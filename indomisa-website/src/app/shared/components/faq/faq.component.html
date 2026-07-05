@@ -1,0 +1,19 @@
+<section class="faq-section">
+  <span class="section-label">{{ label }}</span>
+  <h2>{{ title }}</h2>
+
+  <div class="faq-list">
+    @for (item of items; track item.question; let i = $index) {
+      <article class="faq-item">
+        <button type="button" (click)="toggleFaq(i, item)">
+          <span>{{ item.question }}</span>
+          <span>{{ isOpen(i) ? '−' : '+' }}</span>
+        </button>
+
+        @if (isOpen(i)) {
+          <p>{{ item.answer }}</p>
+        }
+      </article>
+    }
+  </div>
+</section>

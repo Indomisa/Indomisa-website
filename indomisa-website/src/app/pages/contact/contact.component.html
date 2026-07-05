@@ -1,173 +1,114 @@
-<section id="contact" class="relative py-24 overflow-hidden">
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-content">
+                <span class="section-label">CONTACT US</span>
 
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(120,80,255,0.15),transparent)]">
-    </div>
+                <h2>Tell us what you need built.</h2>
 
-    <div class="relative max-w-7xl mx-auto px-6">
+                <p>
+                    Answer a few quick questions and we’ll help you plan the right website,
+                    system, MVP, or automation solution.
+                </p>
 
-        <div class="text-center mb-16">
+                <div class="contact-details">
+                    <article>
+                        <h3>Location</h3>
+                        <p>Johannesburg, South Africa</p>
+                        <div class="map-card">
+                            <iframe title="Indomisa Consulting location" [src]="googleMapUrl" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </article>
 
-            <p class="uppercase tracking-[0.3em] text-accent text-sm font-semibold mb-3">
+                    <article>
+                        <h3>Business Hours</h3>
+                        <p>Monday – Friday: 08:00 – 17:00</p>
+                        <p>Saturday: By appointment</p>
+                        <p>Sunday: Closed</p>
+                    </article>
 
-                CONTACT
-
-            </p>
-
-            <h2 class="text-5xl font-bold font-syne mb-6">
-
-                Let's Build Something Amazing
-
-            </h2>
-
-            <p class="max-w-2xl mx-auto text-muted-foreground text-lg">
-
-                Ready to discuss your project? We'd love to hear your ideas
-                and help turn them into reality.
-
-            </p>
-
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-16">
-
-            <!-- Contact Info -->
-
-            <div>
-
-                <h3 class="text-2xl font-bold mb-8">
-
-                    Get In Touch
-
-                </h3>
-
-                <div class="space-y-8">
-
-                    <div>
-
-                        <p class="font-semibold">
-
-                            Email
-
-                        </p>
-
-                        <p class="text-muted-foreground">
-
-                            support&#64;indomisa.it.com
-
-                        </p>
-
-                    </div>
-
-                    <div>
-
-                        <p class="font-semibold">
-
-                            Phone
-
-                        </p>
-
-                        <p class="text-muted-foreground">
-
-                            +27 61 524 9848
-
-                        </p>
-
-                    </div>
-
-                    <div>
-
-                        <p class="font-semibold">
-
-                            Location
-
-                        </p>
-
-                        <p class="text-muted-foreground">
-
-                            Johannesburg, South Africa
-
-                        </p>
-
-                    </div>
-
+                    <article>
+                        <h3>WhatsApp</h3>
+                        <p>+27 61 524 9848</p>
+                    </article>
                 </div>
+
 
             </div>
 
-            <!-- Form -->
-
-            <div class="rounded-3xl border border-border/40 bg-card/80 backdrop-blur-xl p-8">
-
-                @if(submitted()){
-
-                <div class="rounded-xl bg-accent/20 border border-accent/30 p-6 text-center">
-
-                    <h3 class="text-xl font-bold mb-2">
-
-                        Thank you!
-
-                    </h3>
-
-                    <p>
-
-                        We'll get back to you shortly.
-
-                    </p>
-
+            <form class="staged-form" [formGroup]="contactForm" (ngSubmit)="submit()">
+                <div class="progress-track">
+                    <div class="progress-bar" [style.width]="progress()"></div>
                 </div>
 
-                } @else {
+                <div class="step-indicator">
+                    Step {{ currentStep() }} of 3
+                </div>
 
-                <form [formGroup]="contactForm" (ngSubmit)="submit()" class="space-y-5">
+                @if (currentStep() === 1) {
+                <div class="form-step">
+                    <h3>What do you need done?</h3>
 
-                    <input formControlName="name" type="text" placeholder="Full Name"
-                        class="w-full rounded-xl bg-background border border-border px-4 py-3" />
-
-                    <input formControlName="company" type="text" placeholder="Company"
-                        class="w-full rounded-xl bg-background border border-border px-4 py-3" />
-
-                    <input formControlName="email" type="email" placeholder="Email Address"
-                        class="w-full rounded-xl bg-background border border-border px-4 py-3" />
-
-                    <input formControlName="phone" type="text" placeholder="Phone Number"
-                        class="w-full rounded-xl bg-background border border-border px-4 py-3" />
-
-                    <select formControlName="service"
-                        class="w-full rounded-xl bg-background border border-border px-4 py-3">
-
-                        @for (service of services; track service.title) {
-                        <option>
-                            {{ service.title }}
-                        </option>
+                    <div class="option-grid">
+                        @for (type of projectTypes; track type.value) {
+                        <button type="button" class="option-card"
+                            [class.selected]="contactForm.controls.projectType.value === type.value"
+                            (click)="selectProjectType(type.value)">
+                            {{ type.label }}
+                        </button>
                         }
-                    </select>
-
-                    <textarea formControlName="message" rows="6" placeholder="Tell us about your project..."
-                        class="w-full rounded-xl bg-background border border-border px-4 py-3 resize-none"></textarea>
-
-                    <button type="submit" [disabled]="loading()"
-                        class="w-full rounded-xl bg-gradient-to-r from-primary to-fuchsia-500 py-4 font-semibold transition hover:scale-[1.02] disabled:opacity-50">
-
-                        @if(loading()){
-
-                        Sending...
-
-                        } @else {
-
-                        Send Message
-
-                        }
-
-                    </button>
-
-                </form>
-
+                    </div>
+                </div>
                 }
 
-            </div>
+                @if (currentStep() === 2) {
+                <div class="form-step">
+                    <h3>What scale is the project?</h3>
 
+                    <div class="option-grid">
+                        @for (scale of projectScales; track scale.value) {
+                        <button type="button" class="option-card"
+                            [class.selected]="contactForm.controls.projectScale.value === scale.value"
+                            (click)="selectProjectScale(scale.value)">
+                            {{ scale.label }}
+                        </button>
+                        }
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="back-btn " (click)="previousStep()">Back</button>
+                    </div>
+                </div>
+                }
+
+
+                @if (currentStep() === 3) {
+                <div class="form-step">
+                    <h3>Your contact details</h3>
+
+                    <label>
+                        Business name
+                        <input formControlName="businessName" type="text" placeholder="Company name" />
+                    </label>
+
+                    <label>
+                        WhatsApp number
+                        <input formControlName="whatsappNumber" type="tel" placeholder="+27..." />
+
+                        @if (contactForm.controls.whatsappNumber.invalid && contactForm.controls.whatsappNumber.touched)
+                        {
+                        <small>Enter a valid South African WhatsApp number.</small>
+                        }
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="button" class="back-btn" (click)="previousStep()">Back</button>
+                        <button type="submit" class="submit-btn">Submit Enquiry</button>
+                    </div>
+                </div>
+                }
+            </form>
         </div>
-
     </div>
-
 </section>

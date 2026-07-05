@@ -6,19 +6,39 @@
   <div class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
 
     <a href="/" class="flex items-center">
-      <img src="assets/logo_no_caption.png" alt="Indomisa" class="h-20 w-auto object-contain">
+      <img src="assets/logo_no_caption.png" alt="Indomisa" class="h-12 w-auto object-contain">
     </a>
 
     <div class="hidden md:flex items-center gap-8">
       @for (link of links; track link.label) {
-      <a [href]="link.href" class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
+      @if(link.children) {
+      <div class="relative group">
+        <a [routerLink]="link.route"
+          class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
+          {{ link.label }}
+        </a>
+
+        <div
+          class="absolute left-0 mt-2 w-48 bg-card border border-border/40 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+          @for (child of link.children; track child.label) {
+          <a [routerLink]="child.route"
+            class="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors">
+            {{ child.label }}
+          </a>
+          }
+        </div>
+      </div>
+      } @else {
+      <a [routerLink]="link.route"
+        class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
         {{ link.label }}
       </a>
       }
+      }
 
-      <a href="#contact">
+      <a routerLink="/contact" class="ml-4">
         <button
-          class="rounded-full px-6 py-2 bg-gradient-to-r from-primary to-fuchsia-500 shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all">
+          class="rounded-full px-6 py-2 bg-gradient-to-r from-primary to-fuchsia-500 shadow-lg shadow-primary/20 font-semibold hover:shadow-primary/40 hover:scale-105 transition-all">
           Get Started
         </button>
       </a>

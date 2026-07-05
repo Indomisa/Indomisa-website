@@ -4,16 +4,18 @@ import {
   signal
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 interface NavLink {
   label: string;
-  href: string;
+  route: string;
+  children?: NavLink[];
 }
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
@@ -23,9 +25,14 @@ export class NavbarComponent {
   mobileOpen = signal(false);
 
   links: NavLink[] = [
-    { label: 'Services', href: '#services' },
-    { label: 'Process', href: '#process' },
-    { label: 'About', href: '#about' },
+    {
+      label: 'Services', route: '/services', children: [
+        { label: 'Web Development', route: '/services/web-development' },
+        { label: 'Software Development', route: '/services/software-development' },
+        { label: 'Business Analysis', route: '/services/business-analysis' },
+      ]
+    },
+    { label: 'About', route: '/about' },
   ];
 
   @HostListener('window:scroll')
