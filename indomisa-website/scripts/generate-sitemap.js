@@ -5,7 +5,7 @@ const path = require('path');
 
 const routes = require('./routes.config');
 
-const SITE_URL = 'https://indomisa.co.za';
+const SITE_URL = 'https://indomisa.it.com';
 
 async function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];

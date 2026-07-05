@@ -21,8 +21,9 @@ interface NavLink {
 })
 export class NavbarComponent {
 
-  scrolled = signal(false);
-  mobileOpen = signal(false);
+  protected readonly scrolled = signal(false);
+  protected readonly mobileMenuOpen = signal(false);
+  protected readonly openedDropdown = signal<string | null>(null);
 
   links: NavLink[] = [
     {
@@ -36,15 +37,20 @@ export class NavbarComponent {
   ];
 
   @HostListener('window:scroll')
-  onScroll(): void {
+  protected onWindowScroll(): void {
     this.scrolled.set(window.scrollY > 20);
   }
 
-  toggleMenu(): void {
-    this.mobileOpen.update(v => !v);
+  protected toggleMenu(): void {
+    this.mobileMenuOpen.update((isOpen) => !isOpen);
   }
 
-  closeMenu(): void {
-    this.mobileOpen.set(false);
+  protected closeMenu(): void {
+    this.mobileMenuOpen.set(false);
+    this.openedDropdown.set(null);
+  }
+
+  protected toggleMobileDropdown(label: string): void {
+    this.openedDropdown.update((current) => (current === label ? null : label));
   }
 }
