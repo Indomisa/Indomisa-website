@@ -1,6 +1,6 @@
-import { genericType } from "../../../shared/model/generic-type";
+import { GenericType } from "../../../shared/model/generic-type";
 
-export const WHY_US_CONFIG: genericType[] = [
+export const WHY_US_CONFIG: GenericType[] = [
     {
         title: 'Built for SMEs',
         description:

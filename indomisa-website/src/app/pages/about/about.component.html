@@ -14,10 +14,10 @@
 
     <section class="stats-grid">
       @for (stat of stats; track stat.label) {
-        <article class="stat-card">
-          <h2>{{ stat.value }}</h2>
-          <p>{{ stat.label }}</p>
-        </article>
+      <article class="stat-card">
+        <h2>{{ stat.value }}</h2>
+        <p>{{ stat.label }}</p>
+      </article>
       }
     </section>
 
@@ -27,11 +27,11 @@
 
       <div class="cards-grid">
         @for (item of whyUs; track item.title) {
-          <article class="info-card">
-            <div class="icon-dot"></div>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-          </article>
+        <article class="info-card">
+          <div class="icon-dot"></div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
         }
       </div>
     </section>
@@ -68,23 +68,8 @@
     </section> -->
 
     <section class="content-section faq-contact-section">
-      <div class="faq">
-        <span class="section-label">FAQ</span>
-        <h2>Frequently asked questions</h2>
-
-        @for (faq of faqs; track faq.question; let i = $index) {
-          <article class="faq-item">
-            <button type="button" (click)="toggleFaq(i)">
-              <span>{{ faq.question }}</span>
-              <span>{{ activeFaq === i ? '−' : '+' }}</span>
-            </button>
-
-            @if (activeFaq === i) {
-              <p>{{ faq.answer }}</p>
-            }
-          </article>
-        }
-      </div>
+      <app-faq label="FAQ" title="Frequently asked questions" [items]="faqs">
+      </app-faq>
 
       <aside class="contact-box">
         <span class="section-label">CONTACT US</span>

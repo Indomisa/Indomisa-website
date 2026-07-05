@@ -1,0 +1,92 @@
+<section class="web-page">
+  <div class="container">
+    <section class="hero-section">
+      <span class="section-label">WEB DEVELOPMENT</span>
+
+      <h1>Modern websites and web apps built for business growth.</h1>
+
+      <p>
+        Indomisa Consulting designs and develops responsive websites, landing
+        pages, portals, and custom web applications that help businesses improve
+        visibility, automate workflows, and convert visitors into customers.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/contact" class="primary-btn">Start a Project</a>
+        <a routerLink="/services" class="secondary-btn">View All Services</a>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <span class="section-label">WHAT WE BUILD</span>
+      <h2>Web solutions tailored to your business</h2>
+
+      <div class="services-grid">
+        @for (service of services; track service.title) {
+        <article class="service-card">
+          <div class="icon-dot"></div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+        }
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div>
+        <span class="section-label">WHY IT MATTERS</span>
+        <h2>Your website should do more than look good.</h2>
+      </div>
+
+      <div class="split-content">
+        <p>
+          A well-built website should communicate clearly, load quickly, guide
+          visitors to take action, and support your long-term business goals.
+          We focus on usability, maintainability, SEO readiness, and practical
+          business value.
+        </p>
+
+        <ul>
+          <li>Responsive design for all screen sizes</li>
+          <li>SEO-friendly page structure</li>
+          <li>Fast-loading, optimised assets</li>
+          <li>Clear calls to action</li>
+          <li>Scalable structure for future pages</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <span class="section-label">OUR PROCESS</span>
+      <h2>How we deliver your web project</h2>
+
+      <div class="process-grid">
+        @for (step of processSteps; track step.number) {
+        <article class="process-card">
+          <span>{{ step.number }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </article>
+        }
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <div class="featured-card">
+        <span class="section-label">FEATURED USE CASE</span>
+        <h2>From brochure website to business platform</h2>
+
+        <p>
+          We can start with a clean marketing website and expand it over time
+          into a client portal, booking system, dashboard, or workflow platform.
+          This lets your business launch quickly without limiting future growth.
+        </p>
+
+        <a routerLink="/contact" class="primary-btn">Discuss Your Website</a>
+      </div>
+    </section>
+
+
+    <app-faq [items]="faqs"></app-faq>
+  </div>
+</section>

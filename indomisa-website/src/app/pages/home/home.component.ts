@@ -5,21 +5,20 @@ import { ProcessSectionComponent } from "../process-section/process-section.comp
 import { MarqueeTickerComponent } from "../marquee-ticker/marquee-ticker.component";
 import { DifferentiatorSectionComponent } from "../differentiator-section/differentiator-section.component";
 import { AboutPreviewComponent } from "../about-preview/about-preview.component";
-import { ServicesPreviewComponent } from "../services-preview/services-preview.component";
-import { ContactPreviewComponent } from '../contact-preview/contact-preview.component';
+import { ServicesPreviewComponent } from '../services-preview/services-preview.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   standalone: true,
-  imports: [HeroComponent, ProcessSectionComponent, MarqueeTickerComponent, DifferentiatorSectionComponent, AboutPreviewComponent, ServicesPreviewComponent, ContactPreviewComponent],
+  imports: [HeroComponent, ProcessSectionComponent, MarqueeTickerComponent, DifferentiatorSectionComponent, AboutPreviewComponent, ServicesPreviewComponent],
 })
 export class HomeComponent implements OnInit {
 
   constructor(
     private title: Title,
     private meta: Meta
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Indomisa Consulting | Software Development & Business Solutions');

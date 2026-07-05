@@ -9,6 +9,7 @@ import { RouterLink } from "@angular/router";
 interface NavLink {
   label: string;
   route: string;
+  children?: NavLink[];
 }
 
 @Component({
@@ -24,8 +25,13 @@ export class NavbarComponent {
   mobileOpen = signal(false);
 
   links: NavLink[] = [
-    { label: 'Services', route: '/services' },
-    { label: 'Process', route: '/process' },
+    {
+      label: 'Services', route: '/services', children: [
+        { label: 'Web Development', route: '/services/web-development' },
+        { label: 'Software Development', route: '/services/software-development' },
+        { label: 'Business Analysis', route: '/services/business-analysis' },
+      ]
+    },
     { label: 'About', route: '/about' },
   ];
 

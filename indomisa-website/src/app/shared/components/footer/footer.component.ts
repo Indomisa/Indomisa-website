@@ -1,4 +1,3 @@
-import { LowerCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
@@ -10,7 +9,7 @@ interface FooterLinkGroup {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [LowerCasePipe, RouterLink],
+  imports: [RouterLink],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
@@ -20,15 +19,18 @@ export class FooterComponent {
   footerLinks: FooterLinkGroup[] = [
     {
       title: 'Company',
-      links: ['About', 'Careers', 'Blog', 'Press']
+      links: ['About']
     },
     {
       title: 'Services',
-      links: ['Mobile Apps', 'Web Apps', 'Analytics', 'Support']
+      links: ['Software Development', 'Web Development', 'Business Analysis']
     },
     {
       title: 'Resources',
-      links: ['Case Studies', 'FAQ', 'Privacy Policy', 'Terms']
+      links: ['FAQ', 'Privacy Policy', 'Terms']
     }
   ];
+  getServiceRoute(link: string): string {
+    return '/services/' + link.toLowerCase().replaceAll(' ', '-');
+  }
 }

@@ -1,4 +1,4 @@
-export interface genericType {
+export interface GenericType {
   title: string;
   description: string;
 }

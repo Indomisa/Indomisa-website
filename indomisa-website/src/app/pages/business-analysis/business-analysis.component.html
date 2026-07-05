@@ -1,0 +1,110 @@
+<section class="ba-page">
+  <div class="container">
+    <section class="hero-section">
+      <span class="section-label">BUSINESS ANALYSIS</span>
+
+      <h1>Turn business problems into clear, buildable solutions.</h1>
+
+      <p>
+        We help businesses define requirements, map workflows, scope MVPs,
+        document systems, and prepare projects for successful software delivery.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/contact" class="primary-btn">Book Discovery</a>
+        <a routerLink="/services" class="secondary-btn">View All Services</a>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <span class="section-label">WHAT WE DO</span>
+      <h2>Business analysis services for better project outcomes</h2>
+
+      <div class="cards-grid">
+        @for (service of services; track service.title) {
+          <article class="card">
+            <div class="icon-dot"></div>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div>
+        <span class="section-label">WHY IT MATTERS</span>
+        <h2>Good software starts before code is written.</h2>
+      </div>
+
+      <div class="split-content">
+        <p>
+          Many software projects fail because requirements are unclear, scope is
+          uncontrolled, or business processes are not properly understood. Our
+          business analysis process creates alignment between stakeholders,
+          developers, users, and decision-makers before delivery begins.
+        </p>
+
+        <ul>
+          <li>Reduce scope creep and rework</li>
+          <li>Clarify business rules and user needs</li>
+          <li>Identify risks before development starts</li>
+          <li>Create shared understanding across stakeholders</li>
+          <li>Improve cost, timeline, and delivery confidence</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <span class="section-label">OUR PROCESS</span>
+      <h2>How we structure analysis work</h2>
+
+      <div class="process-grid">
+        @for (step of processSteps; track step.number) {
+          <article class="process-card">
+            <span>{{ step.number }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="deliverables-section">
+      <span class="section-label">DELIVERABLES</span>
+      <h2>What you receive</h2>
+
+      <div class="deliverables-grid">
+        @for (item of deliverables; track item.title) {
+          <article class="card">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- <section class="featured-section">
+      <article class="featured-card">
+        <span class="section-label">FEATURED USE CASE</span>
+
+        <h2>From vague idea to signed-off project scope</h2>
+
+        <p>
+          If you know your business has a problem but are unsure what system to
+          build, business analysis helps convert that uncertainty into a clear
+          scope, structured requirements, realistic budget, and implementation
+          roadmap.
+        </p>
+
+        <a routerLink="/contact" class="primary-btn">Plan Your Project</a>
+      </article>
+    </section> -->
+
+    <app-faq
+      label="BUSINESS ANALYSIS FAQ"
+      title="Common business analysis questions"
+      [items]="faqs">
+    </app-faq>
+  </div>
+</section>

@@ -1,0 +1,108 @@
+<section class="software-page">
+  <div class="container">
+    <section class="hero-section">
+      <span class="section-label">SOFTWARE DEVELOPMENT</span>
+
+      <h1>Custom software built around how your business actually works.</h1>
+
+      <p>
+        We design and build practical software solutions that help businesses
+        automate processes, improve visibility, reduce manual work, and scale
+        operations with confidence.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/contact" class="primary-btn">Start a Project</a>
+        <a routerLink="/services" class="secondary-btn">View All Services</a>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <span class="section-label">WHAT WE BUILD</span>
+      <h2>Software solutions for real business problems</h2>
+
+      <div class="services-grid">
+        @for (service of services; track service.title) {
+        <article class="service-card">
+          <div class="icon-dot"></div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+        }
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div>
+        <span class="section-label">WHY CUSTOM SOFTWARE</span>
+        <h2>Stop forcing your business into generic tools.</h2>
+      </div>
+
+      <div class="split-content">
+        <p>
+          Off-the-shelf systems are useful, but they often create workarounds,
+          duplicate data entry, and fragmented reporting. Custom software allows
+          your business rules, workflows, users, and integrations to work
+          together in one structured solution.
+        </p>
+
+        <ul>
+          <li>Digitise manual workflows</li>
+          <li>Connect disconnected systems</li>
+          <li>Improve reporting and operational visibility</li>
+          <li>Reduce repetitive admin work</li>
+          <li>Build scalable foundations for future growth</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tech-section">
+      <span class="section-label">TECHNOLOGY STACK</span>
+      <h2>Modern, maintainable, and scalable technology</h2>
+
+      <div class="tech-grid">
+        @for (tech of technologies; track tech.name) {
+        <article class="tech-card">
+          <h3>{{ tech.name }}</h3>
+          <p>{{ tech.description }}</p>
+        </article>
+        }
+      </div>
+    </section>
+
+    <section class="process-section">
+      <span class="section-label">OUR PROCESS</span>
+      <h2>How we deliver software projects</h2>
+
+      <div class="process-grid">
+        @for (step of processSteps; track step.number) {
+        <article class="process-card">
+          <span>{{ step.number }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </article>
+        }
+      </div>
+    </section>
+
+    <!-- <section class="featured-section">
+      <article class="featured-card">
+        <span class="section-label">FEATURED USE CASE</span>
+
+        <h2>Field service dispatch platform</h2>
+
+        <p>
+          A practical example of custom software is a field service management
+          platform that connects client incidents, controllers, technicians,
+          job status updates, evidence capture, and reporting into one
+          operational workflow.
+        </p>
+
+        <a routerLink="/contact" class="primary-btn">Discuss Your Software Idea</a>
+      </article>
+    </section> -->
+
+    <app-faq label="SOFTWARE FAQ" title="Common software development questions" [items]="faqs">
+    </app-faq>
+  </div>
+</section>
