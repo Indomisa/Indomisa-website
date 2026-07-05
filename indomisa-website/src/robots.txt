@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://indomisa.co.za/sitemap.xml
+Sitemap: https://indomisa.it.com/sitemap.xml
