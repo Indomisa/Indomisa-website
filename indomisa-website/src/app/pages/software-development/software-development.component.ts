@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaqComponent, FaqItem } from '../../shared/components/faq/faq.component';
+import { SeoService } from '../../services/seo.service';
 
 type ServiceItem = {
   title: string;
@@ -25,7 +26,7 @@ type TechItem = {
   templateUrl: './software-development.component.html',
   styleUrl: './software-development.component.scss',
 })
-export class SoftwareDevelopmentComponent {
+export class SoftwareDevelopmentComponent implements OnInit {
   protected readonly services: ServiceItem[] = [
     {
       title: 'Custom Business Systems',
@@ -127,4 +128,26 @@ export class SoftwareDevelopmentComponent {
         'Ownership depends on the agreed contract, but the project source code, business logic, and documentation can be handed over as part of the delivery.',
     },
   ];
+
+  constructor(private seo: SeoService) {}
+
+  // SEO: Service-page title/description/canonical + Service schema so
+  // this page can be surfaced directly for "software development
+  // [location/industry]" style searches, independent of the /services hub.
+  ngOnInit(): void {
+    this.seo.apply({
+      title: 'Software Development',
+      description: 'Custom business systems, web applications, MVPs, API integrations, and workflow automation built on Angular, Java Spring Boot, and PostgreSQL.',
+      path: '/services/software-development'
+    });
+
+    this.seo.setJsonLd('ld-service', {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: 'Software Development',
+      provider: { '@type': 'Organization', name: 'Indomisa Consulting', url: 'https://indomisa.it.com/' },
+      areaServed: 'ZA',
+      url: 'https://indomisa.it.com/services/software-development'
+    });
+  }
 }

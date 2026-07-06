@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaqComponent, FaqItem } from '../../shared/components/faq/faq.component';
+import { SeoService } from '../../services/seo.service';
 
 type CardItem = {
   title: string;
@@ -20,7 +21,7 @@ type ProcessStep = {
   templateUrl: './business-analysis.component.html',
   styleUrl: './business-analysis.component.scss',
 })
-export class BusinessAnalysisComponent {
+export class BusinessAnalysisComponent implements OnInit {
   protected readonly services: CardItem[] = [
     {
       title: 'Requirements Gathering',
@@ -126,4 +127,24 @@ export class BusinessAnalysisComponent {
         'Yes. You can engage us only for discovery, documentation, scoping, and requirements before deciding whether to proceed with development.',
     },
   ];
+
+  constructor(private seo: SeoService) {}
+
+  // SEO: Service-page title/description/canonical + Service schema.
+  ngOnInit(): void {
+    this.seo.apply({
+      title: 'Business Analysis',
+      description: 'Requirements gathering, process mapping, SRS documentation, and MVP scoping to turn business problems into clear, buildable solutions.',
+      path: '/services/business-analysis'
+    });
+
+    this.seo.setJsonLd('ld-service', {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: 'Business Analysis',
+      provider: { '@type': 'Organization', name: 'Indomisa Consulting', url: 'https://indomisa.it.com/' },
+      areaServed: 'ZA',
+      url: 'https://indomisa.it.com/services/business-analysis'
+    });
+  }
 }

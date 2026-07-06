@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
 import { HeroComponent } from "../hero/hero.component";
 import { ProcessSectionComponent } from "../process-section/process-section.component";
 import { MarqueeTickerComponent } from "../marquee-ticker/marquee-ticker.component";
 import { DifferentiatorSectionComponent } from "../differentiator-section/differentiator-section.component";
 import { AboutPreviewComponent } from "../about-preview/about-preview.component";
 import { ServicesPreviewComponent } from '../services-preview/services-preview.component';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -15,42 +15,34 @@ import { ServicesPreviewComponent } from '../services-preview/services-preview.c
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private title: Title,
-    private meta: Meta
-  ) { }
+  constructor(private seo: SeoService) { }
 
   ngOnInit(): void {
-    this.title.setTitle('Indomisa Consulting | Software Development & Business Solutions');
-
-    this.meta.updateTag({
-      name: 'description',
-      content: 'Indomisa Consulting provides software development, business analysis, system design, and digital transformation solutions in South Africa.'
+    // SEO: homepage title/description/canonical/OG tags, previously set
+    // with raw Title/Meta calls here (this was the only page that had
+    // any at all). Moved to SeoService so every route follows the same
+    // pattern. Domain corrected to indomisa.it.com to match sitemap.xml
+    // and robots.txt (it was previously indomisa.co.za, a mismatch that
+    // would have confused canonical/OG signals to search engines).
+    this.seo.apply({
+      title: 'Custom Software Development & Business Solutions',
+      description: 'Indomisa Consulting provides custom software development, web development, and business analysis for small and medium businesses in South Africa.',
+      path: '/'
     });
 
-    this.meta.updateTag({
-      name: 'keywords',
-      content: 'Indomisa, software development South Africa, business consulting, Angular development, Java development'
-    });
-
-    this.meta.updateTag({
-      property: 'og:title',
-      content: 'Indomisa Consulting'
-    });
-
-    this.meta.updateTag({
-      property: 'og:description',
-      content: 'Software development and business consulting solutions for modern businesses.'
-    });
-
-    this.meta.updateTag({
-      property: 'og:url',
-      content: 'https://indomisa.co.za/'
-    });
-
-    this.meta.updateTag({
-      property: 'og:type',
-      content: 'website'
+    // SEO: Organization + WebSite structured data for the homepage.
+    // Helps Google understand the business entity and enables sitelinks
+    // search box eligibility.
+    this.seo.setJsonLd('ld-home', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Indomisa Consulting',
+      url: 'https://indomisa.it.com/',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://indomisa.it.com/services?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
     });
   }
 }

@@ -1,10 +1,10 @@
 .services-page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 78% 18%, rgba(139, 92, 246, 0.22), transparent 34%),
-    radial-gradient(circle at 18% 78%, rgba(95, 255, 234, 0.08), transparent 32%),
-    #080912;
-  color: #ffffff;
+    radial-gradient(circle at 78% 18%, hsl(var(--primary) / 0.22), transparent 34%),
+    radial-gradient(circle at 18% 78%, hsl(var(--accent) / 0.08), transparent 32%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
   padding: 110px 0;
 }
 
@@ -15,7 +15,7 @@
 
 .section-label {
   display: inline-block;
-  color: #5fffea;
+  color: hsl(var(--accent));
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -36,7 +36,7 @@
 
   p {
     max-width: 760px;
-    color: #98a2b8;
+    color: hsl(var(--muted-foreground));
     font-size: 1.15rem;
     line-height: 1.75;
     margin: 0;
@@ -55,8 +55,8 @@
   flex-direction: column;
   align-items: flex-start;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(95, 255, 234, 0.15);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--accent) / 0.15);
   border-radius: 26px;
   padding: 34px;
   transition: 0.25s ease;
@@ -69,32 +69,32 @@
     inset: auto -40px -50px auto;
     width: 150px;
     height: 150px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.22), transparent 68%);
+    background: radial-gradient(circle, hsl(var(--primary) / 0.22), transparent 68%);
     pointer-events: none;
   }
 
   &:hover {
     transform: translateY(-6px);
-    border-color: rgba(95, 255, 234, 0.42);
-    box-shadow: 0 0 50px rgba(95, 255, 234, 0.08);
+    border-color: hsl(var(--accent) / 0.42);
+    box-shadow: 0 0 50px hsl(var(--accent) / 0.08);
   }
 
   h2 {
-    color: #ffffff;
+    color: hsl(var(--foreground));
     font-size: 1.55rem;
     margin: 22px 0 14px;
     letter-spacing: -0.03em;
   }
 
   p {
-    color: #98a2b8;
+    color: hsl(var(--muted-foreground));
     line-height: 1.7;
     margin: 0;
   }
 }
 
 .service-tag {
-  color: #5fffea;
+  color: hsl(var(--accent));
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -102,7 +102,7 @@
 }
 
 .service-link {
-  color: #ffffff;
+  color: hsl(var(--foreground));
   font-weight: 900;
   margin-top: auto;
   padding-top: 28px;

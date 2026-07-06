@@ -1,11 +1,64 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="utf-8">
-  <title>Indomisa</title>
+
+  <!-- SEO: default title/description — every route overrides these via
+       SeoService (src/app/services/seo.service.ts), but a static fallback
+       matters because crawlers and social scrapers sometimes fetch this
+       shell before hydration finishes, especially on slow connections. -->
+  <title>Indomisa Consulting | Custom Software Development in South Africa</title>
+  <meta name="description" content="Indomisa Consulting designs and builds custom software, web applications, and business systems for small and medium businesses in South Africa.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indomisa.it.com/">
+
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="./assets/logo_o.png">
+
+  <!-- THEME: brand color used by mobile browser chrome (address bar, task
+       switcher). Kept as the navy primary so it reads consistently even
+       when the page itself is in light mode. -->
+  <meta name="theme-color" content="#0E2A57">
+
+  <!-- SEO: Open Graph / Twitter defaults, overridden per-route -->
+  <meta property="og:site_name" content="Indomisa Consulting">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- THEME: preconnect + load the three brand typefaces (Space Grotesk
+       for headings, IBM Plex Sans for body, IBM Plex Mono for labels/
+       stats). Previously "Inter"/"Syne" were referenced in Tailwind
+       classes but never actually loaded, so every page was silently
+       falling back to the OS default font. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- SEO: Organization structured data. Static in the document head
+       (rather than injected by Angular) so it is present immediately for
+       crawlers, independent of hydration. Page-specific structured data
+       (Service, ContactPage, etc.) is added per-route by SeoService. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Indomisa Consulting",
+    "url": "https://indomisa.it.com/",
+    "logo": "https://indomisa.it.com/assets/logo.png",
+    "image": "https://indomisa.it.com/assets/logo.png",
+    "description": "Custom software development, web development, and business analysis consulting for small and medium businesses.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Johannesburg",
+      "addressCountry": "ZA"
+    },
+    "areaServed": "ZA",
+    "telephone": "+27615249848",
+    "sameAs": []
+  }
+  </script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MGRERM4PP"></script>
@@ -17,6 +70,17 @@
   gtag('config', 'G-3MGRERM4PP');
 </script>
 <body>
+  <!-- THEME: sets light/dark before Angular boots to avoid a flash of
+       the wrong theme on load. Mirrors ThemeService's own logic. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('indomisa-theme');
+        var isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
   <app-root></app-root>
 </body>
 </html>

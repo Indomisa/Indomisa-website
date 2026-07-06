@@ -1,8 +1,8 @@
 .contact-section {
   background:
-    radial-gradient(circle at 75% 30%, rgba(139, 92, 246, 0.18), transparent 35%),
-    #080912;
-  color: #ffffff;
+    radial-gradient(circle at 75% 30%, hsl(var(--primary) / 0.18), transparent 35%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
   padding: 110px 0;
 }
 
@@ -19,13 +19,13 @@
 }
 
 .section-label {
-  color: #5fffea;
+  color: hsl(var(--accent));
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.18em;
 }
 
-.contact-content h2 {
+.contact-content h1 {
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   line-height: 0.95;
   margin: 18px 0 24px;
@@ -33,7 +33,7 @@
 }
 
 .contact-content p {
-  color: #98a2b8;
+  color: hsl(var(--muted-foreground));
   line-height: 1.7;
 }
 
@@ -44,8 +44,8 @@
 }
 
 .contact-details article {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(95, 255, 234, 0.16);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 18px;
   padding: 22px;
 }
@@ -62,7 +62,7 @@
   overflow: hidden;
   height: 260px;
   border-radius: 22px;
-  border: 1px solid rgba(139, 92, 246, 0.35);
+  border: 1px solid hsl(var(--primary) / 0.35);
 }
 
 .map-card iframe {
@@ -72,16 +72,16 @@
 }
 
 .staged-form {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(139, 92, 246, 0.35);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--primary) / 0.35);
   border-radius: 28px;
   padding: 34px;
-  box-shadow: 0 0 60px rgba(139, 92, 246, 0.16);
+  box-shadow: 0 0 60px hsl(var(--primary) / 0.16);
 }
 
 .progress-track {
   height: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: hsl(var(--border));
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 18px;
@@ -89,13 +89,13 @@
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(135deg, #5fffea, #d946ef);
+  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent)));
   border-radius: inherit;
   transition: width 0.3s ease;
 }
 
 .step-indicator {
-  color: #98a2b8;
+  color: hsl(var(--muted-foreground));
   font-size: 0.9rem;
   margin-bottom: 28px;
 }
@@ -111,9 +111,9 @@
 }
 
 .option-card {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
   border-radius: 18px;
   padding: 20px;
   text-align: left;
@@ -124,15 +124,15 @@
 
 .option-card:hover,
 .option-card.selected {
-  border-color: #5fffea;
+  border-color: hsl(var(--accent));
   transform: translateY(-3px);
-  box-shadow: 0 0 35px rgba(95, 255, 234, 0.1);
+  box-shadow: 0 0 35px hsl(var(--accent) / 0.1);
 }
 
 label {
   display: grid;
   gap: 10px;
-  color: #ffffff;
+  color: hsl(var(--foreground));
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -141,9 +141,9 @@ input,
 select,
 textarea {
   width: 100%;
-  background: #10111d;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
   border-radius: 14px;
   padding: 15px 16px;
   font: inherit;
@@ -153,7 +153,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #5fffea;
+  border-color: hsl(var(--accent));
 }
 
 textarea {
@@ -161,7 +161,7 @@ textarea {
 }
 
 small {
-  color: #fb7185;
+  color: hsl(var(--destructive));
 }
 
 .form-actions {
@@ -185,18 +185,18 @@ small {
 
 .next-btn,
 .submit-btn {
-  color: #ffffff;
-  background: linear-gradient(135deg, #8b5cf6, #d946ef);
-  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.35);
+  color: hsl(var(--primary-foreground));
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  box-shadow: 0 12px 30px hsl(var(--primary) / 0.35);
   &:hover {
-    box-shadow: 0 12px 30px rgba(168, 85, 247, 0.6);
+    box-shadow: 0 12px 30px hsl(var(--primary) / 0.6);
     transform: scale(1.05);
   }
 }
 
 .back-btn {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  color: hsl(var(--foreground));
+  background: hsl(var(--border));
 }
 
 @media (max-width: 900px) {

@@ -1,10 +1,10 @@
 .web-page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 75% 20%, rgba(139, 92, 246, 0.2), transparent 34%),
-    radial-gradient(circle at 20% 75%, rgba(95, 255, 234, 0.08), transparent 32%),
-    #080912;
-  color: #ffffff;
+    radial-gradient(circle at 75% 20%, hsl(var(--primary) / 0.2), transparent 34%),
+    radial-gradient(circle at 20% 75%, hsl(var(--accent) / 0.08), transparent 32%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
   padding: 110px 0;
 }
 
@@ -15,7 +15,7 @@
 
 .section-label {
   display: inline-block;
-  color: #5fffea;
+  color: hsl(var(--accent));
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -36,7 +36,7 @@
 
   p {
     max-width: 760px;
-    color: #98a2b8;
+    color: hsl(var(--muted-foreground));
     font-size: 1.15rem;
     line-height: 1.75;
     margin: 0;
@@ -63,15 +63,15 @@
 }
 
 .primary-btn {
-  color: #ffffff;
-  background: linear-gradient(135deg, #8b5cf6, #d946ef);
-  box-shadow: 0 14px 32px rgba(168, 85, 247, 0.35);
+  color: hsl(var(--primary-foreground));
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  box-shadow: 0 14px 32px hsl(var(--primary) / 0.35);
 }
 
 .secondary-btn {
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.05);
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--border));
 }
 
 .services-section,
@@ -100,8 +100,8 @@
 .process-card,
 .featured-card,
 .faq-item {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(95, 255, 234, 0.15);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--accent) / 0.15);
   border-radius: 24px;
   padding: 32px;
   transition: 0.25s ease;
@@ -111,15 +111,15 @@
 .process-card:hover,
 .faq-item:hover {
   transform: translateY(-6px);
-  border-color: rgba(95, 255, 234, 0.42);
-  box-shadow: 0 0 50px rgba(95, 255, 234, 0.08);
+  border-color: hsl(var(--accent) / 0.42);
+  box-shadow: 0 0 50px hsl(var(--accent) / 0.08);
 }
 
 .icon-dot {
   width: 13px;
   height: 13px;
   border-radius: 999px;
-  background: #5fffea;
+  background: hsl(var(--accent));
   margin-bottom: 22px;
 }
 
@@ -136,7 +136,7 @@
 .faq-item p,
 .split-content p,
 .split-content li {
-  color: #98a2b8;
+  color: hsl(var(--muted-foreground));
   line-height: 1.7;
 }
 
@@ -156,13 +156,13 @@
   }
 
   li::marker {
-    color: #5fffea;
+    color: hsl(var(--accent));
   }
 }
 
 .process-card span {
   display: inline-block;
-  color: #e879f9;
+  color: hsl(var(--accent));
   font-size: 0.95rem;
   font-weight: 900;
   margin-bottom: 20px;
@@ -170,8 +170,8 @@
 
 .featured-card {
   max-width: 880px;
-  border-color: rgba(139, 92, 246, 0.38);
-  box-shadow: 0 0 70px rgba(139, 92, 246, 0.14);
+  border-color: hsl(var(--primary) / 0.38);
+  box-shadow: 0 0 70px hsl(var(--primary) / 0.14);
 
   p {
     max-width: 720px;

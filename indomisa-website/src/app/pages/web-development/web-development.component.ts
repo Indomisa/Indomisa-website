@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GenericType } from '../../shared/model/generic-type';
 import { QuestionAnswer } from '../../shared/model/qa-model';
 import { FaqComponent } from "../../shared/components/faq/faq.component";
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 
 type ProcessStep = {
   number: string;
@@ -17,7 +18,7 @@ type ProcessStep = {
   styleUrl: './web-development.component.scss',
   imports: [FaqComponent, RouterLink],
 })
-export class WebDevelopmentComponent {
+export class WebDevelopmentComponent implements OnInit {
   protected readonly services: GenericType[] = [
     {
       title: 'Business Websites',
@@ -100,4 +101,24 @@ export class WebDevelopmentComponent {
         'Yes. We can add sitemap.xml, robots.txt, SEO metadata, structured data, Google Analytics, and Google Search Console setup guidance.',
     },
   ];
+
+  constructor(private seo: SeoService) {}
+
+  // SEO: Service-page title/description/canonical + Service schema.
+  ngOnInit(): void {
+    this.seo.apply({
+      title: 'Web Development',
+      description: 'Modern, responsive business websites, landing pages, and web applications built with SEO-ready structure from the start.',
+      path: '/services/web-development'
+    });
+
+    this.seo.setJsonLd('ld-service', {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: 'Web Development',
+      provider: { '@type': 'Organization', name: 'Indomisa Consulting', url: 'https://indomisa.it.com/' },
+      areaServed: 'ZA',
+      url: 'https://indomisa.it.com/services/web-development'
+    });
+  }
 }

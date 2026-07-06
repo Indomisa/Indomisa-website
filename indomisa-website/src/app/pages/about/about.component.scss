@@ -1,10 +1,10 @@
 .about-page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 75% 20%, rgba(140, 75, 255, 0.18), transparent 35%),
-    radial-gradient(circle at 80% 70%, rgba(236, 72, 255, 0.12), transparent 30%),
-    #080912;
-  color: #ffffff;
+    radial-gradient(circle at 75% 20%, hsl(var(--primary) / 0.18), transparent 35%),
+    radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.12), transparent 30%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
   padding: 100px 0;
 }
 
@@ -15,7 +15,7 @@
 
 .section-label {
   display: inline-block;
-  color: #5fffea;
+  color: hsl(var(--accent));
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.18em;
@@ -34,7 +34,7 @@
   }
 
   p {
-    color: #98a2b8;
+    color: hsl(var(--muted-foreground));
     font-size: 1.15rem;
     line-height: 1.75;
     max-width: 720px;
@@ -49,20 +49,20 @@
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(137, 92, 255, 0.35);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 22px;
   padding: 32px;
-  box-shadow: 0 0 50px rgba(147, 51, 234, 0.12);
+  box-shadow: 0 0 50px hsl(var(--primary) / 0.12);
 
   h2 {
-    color: #8b5cf6;
+    color: hsl(var(--primary));
     font-size: 2.6rem;
     margin: 0 0 10px;
   }
 
   p {
-    color: #98a2b8;
+    color: hsl(var(--muted-foreground));
     margin: 0;
   }
 }
@@ -89,8 +89,8 @@
 .work-card,
 .review-card,
 .contact-box {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(95, 255, 234, 0.16);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 24px;
   padding: 32px;
   transition: 0.25s ease;
@@ -99,14 +99,14 @@
 .info-card:hover,
 .work-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(95, 255, 234, 0.45);
-  box-shadow: 0 0 50px rgba(95, 255, 234, 0.08);
+  border-color: hsl(var(--accent) / 0.4);
+  box-shadow: 0 0 50px hsl(var(--accent) / 0.08);
 }
 
 .icon-dot {
   width: 13px;
   height: 13px;
-  background: #5fffea;
+  background: hsl(var(--accent));
   border-radius: 50%;
   margin-bottom: 20px;
 }
@@ -122,13 +122,13 @@
 .review-card p,
 .contact-box p,
 .faq-item p {
-  color: #98a2b8;
+  color: hsl(var(--muted-foreground));
   line-height: 1.7;
 }
 
 .work-card span {
   display: inline-block;
-  color: #e879f9;
+  color: hsl(var(--accent));
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -140,16 +140,22 @@
 .primary-btn {
   display: inline-flex;
   margin-top: 18px;
-  color: #ffffff;
+  color: hsl(var(--primary-foreground));
   text-decoration: none;
   font-weight: 600;
 }
 
 .primary-btn {
-  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
   padding: 15px 32px;
   border-radius: 999px;
-  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.35);
+  box-shadow: 0 12px 30px hsl(var(--primary) / 0.35);
+}
+
+.primary-btn:hover {
+  box-shadow: 0 12px 30px hsl(var(--primary) / 0.45);
+  scale: 105%;
+  transition: all 0.25s ease;
 }
 
 .reviews-section {
@@ -157,7 +163,7 @@
 }
 
 .stars {
-  color: #5fffea;
+  color: hsl(var(--accent));
   font-size: 1.4rem;
   letter-spacing: 0.2em;
   margin-bottom: 20px;
@@ -171,13 +177,13 @@
 }
 
 .faq-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid hsl(var(--border));
 
   button {
     width: 100%;
     background: transparent;
     border: none;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     padding: 22px 0;
     font-size: 1.05rem;
     font-weight: 600;
@@ -188,7 +194,7 @@
   }
 
   span {
-    color: #5fffea;
+    color: hsl(var(--accent));
     font-size: 1.4rem;
   }
 

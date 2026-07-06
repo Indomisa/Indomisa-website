@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -12,6 +12,7 @@ import { PROJECT_TYPE_CONFIG } from './config/project-type.config';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { GenericOption } from '../../shared/model/generic-option.model';
 import { PROJECT_SCALE_CONFIG } from './config/project-scale.config';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -23,11 +24,12 @@ import { PROJECT_SCALE_CONFIG } from './config/project-scale.config';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
   private formBuilder = inject(FormBuilder);
   private mailService = inject(MailService);
   private analytics = inject(AnalyticsService);
+  private seo = inject(SeoService);
 
   protected readonly currentStep = signal(1);
 
@@ -54,6 +56,34 @@ export class ContactComponent {
     this.googleMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       'https://www.google.com/maps?q=Johannesburg,South%20Africa&output=embed'
     );
+  }
+
+  // SEO: title/description/canonical + LocalBusiness structured data.
+  // Uses the same name/address/phone (NAP) shown in the page content
+  // below — consistent NAP across the page and the schema is what
+  // local search results actually check.
+  ngOnInit(): void {
+    this.seo.apply({
+      title: 'Contact Us',
+      description: 'Get in touch with Indomisa Consulting to discuss a custom website, business system, MVP, or automation project.',
+      path: '/contact'
+    });
+
+    this.seo.setJsonLd('ld-contact', {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Indomisa Consulting',
+      url: 'https://indomisa.it.com/contact',
+      telephone: '+27615249848',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Johannesburg',
+        addressCountry: 'ZA'
+      },
+      openingHoursSpecification: [
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' }
+      ]
+    });
   }
 
   protected selectProjectType(value: string): void {

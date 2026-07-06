@@ -142,8 +142,8 @@ export class ParticleFieldComponent implements AfterViewInit, OnDestroy {
       canvas.width * 0.55
     );
 
-    gradient.addColorStop(0, 'rgba(120, 80, 255, 0.16)');
-    gradient.addColorStop(0.45, 'rgba(120, 80, 255, 0.05)');
+    gradient.addColorStop(0, 'rgba(37, 86, 224, 0.14)');
+    gradient.addColorStop(0.45, 'rgba(37, 86, 224, 0.05)');
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
     this.ctx.fillStyle = gradient;
@@ -185,7 +185,7 @@ export class ParticleFieldComponent implements AfterViewInit, OnDestroy {
           this.ctx.beginPath();
           this.ctx.moveTo(a.x, a.y);
           this.ctx.lineTo(b.x, b.y);
-          this.ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
+          this.ctx.strokeStyle = `rgba(37, 86, 224, ${opacity})`;
           this.ctx.lineWidth = 0.7;
           this.ctx.stroke();
         }
@@ -201,8 +201,8 @@ export class ParticleFieldComponent implements AfterViewInit, OnDestroy {
     for (const particle of this.particles) {
       this.ctx.beginPath();
       this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(139, 92, 246, ${particle.opacity})`;
-      this.ctx.shadowColor = 'rgba(139, 92, 246, 0.9)';
+      this.ctx.fillStyle = `rgba(37, 86, 224, ${particle.opacity})`;
+      this.ctx.shadowColor = 'rgba(37, 86, 224, 0.7)';
       this.ctx.shadowBlur = 8;
       this.ctx.fill();
       this.ctx.shadowBlur = 0;
