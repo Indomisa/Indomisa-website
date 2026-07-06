@@ -3,8 +3,7 @@
     <section class="hero-section">
       <span class="section-label">SERVICES</span>
 
-      <h1>Digital services for businesses that need practical software solutions.</h1>
-
+      <h1>Software Development, Web Development and Business Analysis Services</h1>
       <p>
         We help businesses plan, design, build, and improve websites, software
         systems, integrations, and automated workflows.
@@ -13,15 +12,15 @@
 
     <section class="services-grid">
       @for (service of services; track service.route) {
-        <a class="service-card" [routerLink]="service.route">
-          <span class="service-tag">{{ service.tag }}</span>
+      <a class="service-card" [routerLink]="service.route">
+        <span class="service-tag">{{ service.tag }}</span>
 
-          <h2>{{ service.title }}</h2>
+        <h2>{{ service.title }}</h2>
 
-          <p>{{ service.description }}</p>
+        <p>{{ service.description }}</p>
 
-          <span class="service-link">View service →</span>
-        </a>
+        <span class="service-link">View service →</span>
+      </a>
       }
     </section>
   </div>

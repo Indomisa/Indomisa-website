@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     // and robots.txt (it was previously indomisa.co.za, a mismatch that
     // would have confused canonical/OG signals to search engines).
     this.seo.apply({
-      title: 'Custom Software Development & Business Solutions',
+      title: 'Indomisa Consulting | Custom Software Development & Business Solutions',
       description: 'Indomisa Consulting provides custom software development, web development, and business analysis for small and medium businesses in South Africa.',
       path: '/'
     });
@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
       '@type': 'WebSite',
       name: 'Indomisa Consulting',
       url: 'https://indomisa.it.com/',
+      logo: 'https://indomisa.it.com/assets/images/indomisa-logo.png',
       potentialAction: {
         '@type': 'SearchAction',
         target: 'https://indomisa.it.com/services?q={search_term_string}',
