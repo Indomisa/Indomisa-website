@@ -5,6 +5,7 @@ export const PROJECT_TYPE_CONFIG: GenericOption[] = [
     { label: 'Custom web application', value: 'web-application' },
     { label: 'Business process automation', value: 'automation' },
     { label: 'System integration / API', value: 'integration' },
+    { label: 'Business Analysis', value: 'business-analysis' },
     { label: 'MVP or startup idea', value: 'mvp' },
     { label: 'Not sure yet', value: 'not-sure' },
 ];
