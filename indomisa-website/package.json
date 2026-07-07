@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start-local": "ng serve",
+    "indexnow": "node scripts/submit-indexnow.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "build": "npm run sitemap && ng build",
     "watch": "ng build --watch --configuration development",
