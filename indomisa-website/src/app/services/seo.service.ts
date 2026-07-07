@@ -13,7 +13,7 @@ export interface PageSeo {
 }
 
 const SITE_URL = 'https://indomisa.it.com';
-const DEFAULT_IMAGE = `${SITE_URL}/assets/logo_dark.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/assets/logo_o_dark.png`;
 
 /**
  * SEO: centralises everything each route needs for search and social —
