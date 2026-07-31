@@ -102,7 +102,7 @@
 .faq-item {
   background: hsl(var(--card));
   border: 1px solid hsl(var(--accent) / 0.15);
-  border-radius: 24px;
+  border-radius: 10px;
   padding: 32px;
   transition: 0.25s ease;
 }
@@ -115,13 +115,6 @@
   box-shadow: 0 0 50px hsl(var(--accent) / 0.08);
 }
 
-.icon-dot {
-  width: 13px;
-  height: 13px;
-  border-radius: 999px;
-  background: hsl(var(--accent));
-  margin-bottom: 22px;
-}
 
 .service-card h3,
 .process-card h3,

@@ -25,9 +25,9 @@
       <h2>Business analysis services for better project outcomes</h2>
 
       <div class="cards-grid">
-        @for (service of services; track service.title) {
+        @for (service of services; track service.title; let idx = $index) {
         <article class="card">
-          <div class="icon-dot"></div>
+          <span class="index-badge">{{ padIndex(idx + 1) }}</span>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
         </article>

@@ -4,6 +4,8 @@ import { QuestionAnswer } from '../../shared/model/qa-model';
 import { FaqComponent } from "../../shared/components/faq/faq.component";
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
+import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { padIndex } from '../../shared/util/pad-index';
 
 type ProcessStep = {
   number: string;
@@ -16,9 +18,10 @@ type ProcessStep = {
   standalone: true,
   templateUrl: './web-development.component.html',
   styleUrl: './web-development.component.scss',
-  imports: [FaqComponent, RouterLink],
+  imports: [FaqComponent, RouterLink, RevealOnScrollDirective],
 })
 export class WebDevelopmentComponent implements OnInit {
+  protected padIndex = padIndex;
   protected readonly services: GenericType[] = [
     {
       title: 'Business Websites',

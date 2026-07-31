@@ -51,7 +51,7 @@
 .stat-card {
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
-  border-radius: 22px;
+  border-radius: 10px;
   padding: 32px;
   box-shadow: 0 0 50px hsl(var(--primary) / 0.12);
 
@@ -91,7 +91,7 @@
 .contact-box {
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
-  border-radius: 24px;
+  border-radius: 10px;
   padding: 32px;
   transition: 0.25s ease;
 }
@@ -103,13 +103,6 @@
   box-shadow: 0 0 50px hsl(var(--accent) / 0.08);
 }
 
-.icon-dot {
-  width: 13px;
-  height: 13px;
-  background: hsl(var(--accent));
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
 
 .info-card h3,
 .work-card h3 {
@@ -136,26 +129,12 @@
   text-transform: uppercase;
 }
 
-.work-card a,
-.primary-btn {
+.work-card a {
   display: inline-flex;
   margin-top: 18px;
   color: hsl(var(--primary-foreground));
   text-decoration: none;
   font-weight: 600;
-}
-
-.primary-btn {
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-  padding: 15px 32px;
-  border-radius: 999px;
-  box-shadow: 0 12px 30px hsl(var(--primary) / 0.35);
-}
-
-.primary-btn:hover {
-  box-shadow: 0 12px 30px hsl(var(--primary) / 0.45);
-  scale: 105%;
-  transition: all 0.25s ease;
 }
 
 .reviews-section {

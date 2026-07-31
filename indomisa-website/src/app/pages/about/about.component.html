@@ -1,10 +1,10 @@
 <section id="about-page" class="about-page">
   <div class="container">
     <section class="hero-section">
-      <span class="section-label">ABOUT INDIMOSA</span>
+      <span appReveal class="section-label">ABOUT INDIMOSA</span>
 
-      <h1>About Indomisa Consulting - Software Development Experts</h1>
-      <p>
+      <h1 appReveal [appRevealDelay]="80">About Indomisa Consulting - Software Development Experts</h1>
+      <p appReveal [appRevealDelay]="160">
         Indomisa Consulting designs and develops custom digital solutions for SMEs,
         helping teams automate manual work, improve operations, and deliver better
         customer experiences.
@@ -21,13 +21,13 @@
     </section>
 
     <section class="content-section">
-      <span class="section-label">WHY US</span>
-      <h2>Why businesses choose Indomisa</h2>
+      <span appReveal class="section-label">WHY US</span>
+      <h2 appReveal [appRevealDelay]="80">Why businesses choose Indomisa</h2>
 
       <div class="cards-grid">
-        @for (item of whyUs; track item.title) {
-        <article class="info-card">
-          <div class="icon-dot"></div>
+        @for (item of whyUs; track item.title; let idx = $index) {
+        <article appReveal [appRevealDelay]="160 + idx * 80" class="info-card">
+          <span class="index-badge">{{ padIndex(idx + 1) }}</span>
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
         </article>
@@ -71,14 +71,14 @@
       </app-faq>
 
       <aside class="contact-box">
-        <span class="section-label">CONTACT US</span>
-        <h2>Ready to build your solution?</h2>
-        <p>
+        <span appReveal class="section-label">CONTACT US</span>
+        <h2 appReveal [appRevealDelay]="80">Ready to build your solution?</h2>
+        <p appReveal [appRevealDelay]="160">
           Tell us what your business needs, and we will help you plan a practical
           MVP or full software solution.
         </p>
 
-        <a routerLink="/contact" class="primary-btn">Contact Us</a>
+        <a routerLink="/contact" appReveal [appRevealDelay]="240" class="btn-primary">Contact Us</a>
       </aside>
     </section>
   </div>
