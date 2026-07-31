@@ -1,0 +1,10 @@
+@if (isBrowser) {
+  <div class="preloader" [class.done]="done()">
+    <canvas #canvas></canvas>
+    <div class="preload-hud">
+      <span class="preload-label">INDOMISA</span>
+      <div class="preload-bar"><div class="preload-bar-fill" [style.width.%]="pct()"></div></div>
+      <span class="preload-count">{{ pct() }}%</span>
+    </div>
+  </div>
+}

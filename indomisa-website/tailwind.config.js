@@ -13,9 +13,18 @@ module.exports = {
         // Class names kept as-is (font-inter / font-syne) so no template
         // changes were needed elsewhere — only the underlying typefaces
         // changed. See index.html for the actual font loading.
-        inter: ['IBM Plex Sans', 'Inter', 'sans-serif'],
+        inter: ['Manrope', 'sans-serif'],
         syne: ['Space Grotesk', 'sans-serif'],
-        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+      borderRadius: {
+        // Dark redesign favours sharp/minimal corners over the previous
+        // rounded-everything look — overriding the scale here reskins
+        // every existing rounded-2xl/rounded-3xl usage with no template
+        // changes. rounded-full (pills, badges, dots) is untouched.
+        xl: '8px',
+        '2xl': '10px',
+        '3xl': '10px',
       },
       colors: {
         background: 'hsl(var(--background))',

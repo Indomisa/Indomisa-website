@@ -3,45 +3,33 @@
 @tailwind utilities;
 
 // =============================================================
-// Indomisa design tokens
-// Light theme = default (:root). Dark theme = .dark class on <html>,
-// toggled by ThemeService (src/app/services/theme.service.ts).
+// Indomisa design tokens — dark-only "creative developer portfolio"
+// direction (see redesign/v1b-1 for the approved static prototype).
 // Every Tailwind color in tailwind.config.js reads these variables,
 // so components using bg-background/text-foreground/bg-primary/etc.
 // re-theme automatically — no per-component changes needed.
+//
+// --primary/--accent are reused as the blue/violet accent duo, so
+// every existing `bg-gradient-to-r from-primary to-accent` button
+// across the app becomes the intended blue→violet sweep for free.
+// --primary-foreground/--accent-foreground are dark navy (not white)
+// specifically because primary/accent are now light pastel colors —
+// white text on them would be illegible.
 // =============================================================
 
 :root {
-  // Light theme — clean navy/blue on white, no purple, no neon glow.
-  --background: 220 23% 97%;        // page canvas
-  --foreground: 222 47% 8%;         // primary text
-  --card: 0 0% 100%;                // surfaces: cards, dropdowns, inputs
-  --card-foreground: 222 47% 8%;
-  --primary: 217 68% 20%;           // deep navy — buttons, headings accents
-  --primary-foreground: 0 0% 100%;
-  --accent: 224 76% 53%;            // signal blue — links, active states
-  --accent-foreground: 0 0% 100%;
-  --muted: 220 20% 93%;
-  --muted-foreground: 220 9% 40%;
-  --border: 220 16% 88%;
-  --destructive: 4 76% 55%;         // form errors / validation
-  --destructive-foreground: 0 0% 100%;
-}
-
-.dark {
-  // Dark theme — deep navy canvas, same brand hues re-tuned for contrast.
-  --background: 222 47% 7%;
-  --foreground: 210 20% 95%;
-  --card: 222 39% 11%;
-  --card-foreground: 210 20% 95%;
-  --primary: 217 60% 32%;
-  --primary-foreground: 0 0% 100%;
-  --accent: 221 83% 65%;
-  --accent-foreground: 222 47% 8%;
-  --muted: 222 30% 15%;
-  --muted-foreground: 220 15% 65%;
-  --border: 222 25% 18%;
-  --destructive: 4 70% 62%;
+  --background: 231 45% 11%;         // #10142a — page canvas
+  --foreground: 228 42% 95%;         // #eef0f8 — primary text
+  --card: 229 44% 15%;               // #161c38 — surfaces
+  --card-foreground: 228 42% 95%;
+  --primary: 206 100% 75%;           // #7ec8ff — blue accent
+  --primary-foreground: 225 50% 8%;  // dark navy, for contrast on light primary
+  --accent: 264 100% 77%;            // #b98bff — violet accent
+  --accent-foreground: 225 50% 8%;   // dark navy, for contrast on light accent
+  --muted: 228 32% 17%;
+  --muted-foreground: 230 26% 69%;   // #9aa1c4
+  --border: 228 24% 22%;
+  --destructive: 4 70% 62%;          // form errors / validation
   --destructive-foreground: 0 0% 100%;
 }
 
@@ -53,6 +41,116 @@ body {
   margin: 0;
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: 'IBM Plex Sans', Inter, sans-serif;
+  font-family: 'Manrope', sans-serif;
   transition: background-color .2s ease, color .2s ease;
+}
+
+// -------------------------------------------------------------
+// Reveal-on-scroll (see shared/directives/reveal-on-scroll.directive.ts)
+// -------------------------------------------------------------
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+// -------------------------------------------------------------
+// Numbered index badge — replaces icon-dot/emoji-icon placeholders
+// -------------------------------------------------------------
+.index-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.4rem;
+  margin-bottom: 1.1rem;
+  border: 1px solid hsl(var(--accent) / 0.4);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: hsl(var(--accent));
+}
+
+// -------------------------------------------------------------
+// CTA buttons — bigger, breathing glow, diagonal shine sweep on hover
+// -------------------------------------------------------------
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1.1rem 2.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: hsl(var(--primary-foreground));
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  box-shadow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 18px 40px -10px hsl(var(--primary) / 0.45);
+  animation: btn-breathe 3.2s ease-in-out infinite;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.45) 48%, transparent 66%);
+  transform: translateX(-120%);
+  transition: transform .6s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 0 1px hsl(var(--primary) / 0.6), 0 22px 55px -8px hsl(var(--primary) / 0.6);
+  animation-play-state: paused;
+}
+.btn-primary:hover::before { transform: translateX(120%); }
+@keyframes btn-breathe {
+  0%, 100% { box-shadow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 18px 40px -10px hsl(var(--primary) / 0.45); }
+  50% { box-shadow: 0 0 0 1px hsl(var(--primary) / 0.55), 0 18px 55px -6px hsl(var(--primary) / 0.65); }
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2.5rem;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+  font-weight: 600;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+.btn-ghost:hover {
+  border-color: hsl(var(--accent) / 0.5);
+  color: hsl(var(--accent));
+  background: hsl(var(--card) / 0.6);
+}
+
+// -------------------------------------------------------------
+// Custom cursor (see shared/components/cursor-fx)
+// -------------------------------------------------------------
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+.cursor-dot { width: 6px; height: 6px; background: hsl(var(--primary)); }
+.cursor-ring {
+  width: 34px; height: 34px;
+  border: 1px solid hsl(var(--primary));
+  transition: width .2s ease, height .2s ease, border-color .2s ease, background .2s ease;
+}
+.cursor-ring.hovering {
+  width: 56px; height: 56px;
+  background: hsl(var(--primary) / 0.08);
+  border-color: hsl(var(--accent));
+}
+@media (hover: none) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+@media (hover: hover) {
+  body { cursor: none; }
+  a, button { cursor: none; }
 }

@@ -26,9 +26,9 @@
       <h2>Software solutions for real business problems</h2>
 
       <div class="services-grid">
-        @for (service of services; track service.title) {
+        @for (service of services; track service.title; let idx = $index) {
         <article class="service-card">
-          <div class="icon-dot"></div>
+          <span class="index-badge">{{ padIndex(idx + 1) }}</span>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
         </article>

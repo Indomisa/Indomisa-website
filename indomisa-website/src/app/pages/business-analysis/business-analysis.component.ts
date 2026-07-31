@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaqComponent, FaqItem } from '../../shared/components/faq/faq.component';
 import { SeoService } from '../../services/seo.service';
+import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { padIndex } from '../../shared/util/pad-index';
 
 type CardItem = {
   title: string;
@@ -17,11 +19,12 @@ type ProcessStep = {
 @Component({
   selector: 'app-business-analysis',
   standalone: true,
-  imports: [RouterLink, FaqComponent],
+  imports: [RouterLink, FaqComponent, RevealOnScrollDirective],
   templateUrl: './business-analysis.component.html',
   styleUrl: './business-analysis.component.scss',
 })
 export class BusinessAnalysisComponent implements OnInit {
+  protected padIndex = padIndex;
   protected readonly services: CardItem[] = [
     {
       title: 'Requirements Gathering',
