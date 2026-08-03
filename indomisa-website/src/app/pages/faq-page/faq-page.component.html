@@ -1,0 +1,28 @@
+<section class="faq-page">
+  <div class="container">
+    <section class="hero-section">
+      <h1>Frequently Asked Questions</h1>
+      <p>
+        Answers to the questions we hear most often about working with Indomisa Consulting —
+        general, plus specific to web development, software development, and business analysis.
+      </p>
+    </section>
+
+    <div class="faq-groups">
+      <app-faq title="General" [items]="generalFaqs"></app-faq>
+      <app-faq title="Web Development" [items]="webDevelopmentFaqs"></app-faq>
+      <app-faq title="Software Development" [items]="softwareDevelopmentFaqs"></app-faq>
+      <app-faq title="Business Analysis" [items]="businessAnalysisFaqs"></app-faq>
+    </div>
+
+    <aside class="contact-box">
+      <h2>Still have a question?</h2>
+      <p>
+        Tell us what your business needs, and we will help you plan a practical MVP or full
+        software solution.
+      </p>
+
+      <a routerLink="/contact" class="btn-primary">Contact Us</a>
+    </aside>
+  </div>
+</section>

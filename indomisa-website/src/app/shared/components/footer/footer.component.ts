@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
+interface FooterLink {
+  label: string;
+  route: string;
+}
+
 interface FooterLinkGroup {
   title: string;
-  links: string[];
+  links: FooterLink[];
 }
 
 @Component({
@@ -19,18 +24,23 @@ export class FooterComponent {
   footerLinks: FooterLinkGroup[] = [
     {
       title: 'Company',
-      links: ['About']
+      links: [{ label: 'About', route: '/about' }]
     },
     {
       title: 'Services',
-      links: ['Software Development', 'Web Development', 'Business Analysis']
+      links: [
+        { label: 'Software Development', route: '/services/software-development' },
+        { label: 'Web Development', route: '/services/web-development' },
+        { label: 'Business Analysis', route: '/services/business-analysis' }
+      ]
     },
     {
       title: 'Resources',
-      links: ['FAQ', 'Privacy Policy', 'Terms']
+      links: [
+        { label: 'FAQ', route: '/faq' },
+        { label: 'Privacy Policy', route: '/privacy-policy' },
+        { label: 'Terms', route: '/terms' }
+      ]
     }
   ];
-  getServiceRoute(link: string): string {
-    return '/services/' + link.toLowerCase().replaceAll(' ', '-');
-  }
 }

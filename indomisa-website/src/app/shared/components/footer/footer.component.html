@@ -22,12 +22,12 @@
         </h4>
 
         <ul class="space-y-3">
-          @for (link of group.links; track link) {
+          @for (link of group.links; track link.label) {
           <li>
 
-            <a [routerLink]="getServiceRoute(link)"
+            <a [routerLink]="link.route"
               class="text-muted-foreground hover:text-foreground text-sm transition-colors">
-              {{ link }}
+              {{ link.label }}
             </a>
           </li>
           }
