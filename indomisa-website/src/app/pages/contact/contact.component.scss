@@ -1,7 +1,4 @@
 .contact-section {
-  background:
-    radial-gradient(circle at 75% 30%, hsl(var(--primary) / 0.18), transparent 35%),
-    hsl(var(--background));
   color: hsl(var(--foreground));
   padding: 110px 0;
 }
@@ -16,13 +13,6 @@
   grid-template-columns: 0.95fr 1.05fr;
   gap: 56px;
   align-items: start;
-}
-
-.section-label {
-  color: hsl(var(--accent));
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
 }
 
 .contact-content h1 {
@@ -46,7 +36,7 @@
 .contact-details article {
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
-  border-radius: 18px;
+  border-radius: var(--radius-sm);
   padding: 22px;
 }
 
@@ -61,7 +51,7 @@
 .map-card {
   overflow: hidden;
   height: 260px;
-  border-radius: 22px;
+  border-radius: var(--radius-sm);
   border: 1px solid hsl(var(--primary) / 0.35);
 }
 
@@ -74,9 +64,9 @@
 .staged-form {
   background: hsl(var(--card));
   border: 1px solid hsl(var(--primary) / 0.35);
-  border-radius: 28px;
+  border-radius: var(--radius-sm);
   padding: 34px;
-  box-shadow: 0 0 60px hsl(var(--primary) / 0.16);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
 .progress-track {
@@ -89,7 +79,7 @@
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent)));
+  background: hsl(var(--accent));
   border-radius: inherit;
   transition: width 0.3s ease;
 }
@@ -114,7 +104,7 @@
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
   color: hsl(var(--foreground));
-  border-radius: 18px;
+  border-radius: var(--radius-sm);
   padding: 20px;
   text-align: left;
   font-weight: 700;
@@ -126,7 +116,7 @@
 .option-card.selected {
   border-color: hsl(var(--accent));
   transform: translateY(-3px);
-  box-shadow: 0 0 35px hsl(var(--accent) / 0.1);
+  box-shadow: var(--shadow-glow);
 }
 
 label {
@@ -144,7 +134,7 @@ textarea {
   background: hsl(var(--card));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   padding: 15px 16px;
   font: inherit;
   outline: none;
@@ -186,11 +176,14 @@ small {
 .next-btn,
 .submit-btn {
   color: hsl(var(--primary-foreground));
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-  box-shadow: 0 12px 30px hsl(var(--primary) / 0.35);
+  background: hsl(var(--primary));
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
   &:hover {
-    box-shadow: 0 12px 30px hsl(var(--primary) / 0.6);
-    transform: scale(1.05);
+    background: hsl(var(--accent));
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform: translateY(-2px);
   }
 }
 

@@ -10,11 +10,13 @@ import { FAQ_CONFIG } from './config/faq.config';
 import { FeaturedWorkModel } from './model/featured-work.model';
 import { FaqComponent, FaqItem } from "../../shared/components/faq/faq.component";
 import { SeoService } from '../../services/seo.service';
+import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { padIndex } from '../../shared/util/pad-index';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [RouterLink, FaqComponent],
+  imports: [RouterLink, FaqComponent, RevealOnScrollDirective],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
@@ -28,6 +30,8 @@ export class AboutComponent implements OnInit {
   protected readonly featuredWork: FeaturedWorkModel[] = FEATURED_WORK_CONFIG;
 
   protected readonly faqs: QuestionAnswer[] = FAQ_CONFIG;
+
+  protected padIndex = padIndex;
 
   constructor(private seo: SeoService) {}
 

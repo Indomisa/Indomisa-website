@@ -1,8 +1,6 @@
 <section class="web-page">
   <div class="container">
     <section class="hero-section">
-      <span class="section-label">WEB DEVELOPMENT</span>
-
       <h1>Custom Websites and Web Applications Built for Your South African Business</h1>
       
       <p>
@@ -12,24 +10,18 @@
       </p>
 
       <div class="hero-actions">
-      <a routerLink="/contact">
-        <button type="button"
-          class="rounded-full px-6 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/20 font-semibold hover:shadow-primary/40 hover:scale-105 transition-all">
-          Start a Project
-        </button>
-      </a>
-        <a routerLink="/services" class="secondary-btn">View All Services</a>
+        <a routerLink="/contact" class="btn-primary">Start a Project</a>
+        <a routerLink="/services" class="btn-ghost">View All Services</a>
       </div>
     </section>
 
     <section class="services-section">
-      <span class="section-label">WHAT WE BUILD</span>
       <h2>Web solutions tailored to your business</h2>
 
       <div class="services-grid">
-        @for (service of services; track service.title) {
+        @for (service of services; track service.title; let idx = $index) {
         <article class="service-card">
-          <div class="icon-dot"></div>
+          <span class="index-badge">{{ padIndex(idx + 1) }}</span>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
         </article>
@@ -39,7 +31,6 @@
 
     <section class="split-section">
       <div>
-        <span class="section-label">WHY IT MATTERS</span>
         <h2>Your website should do more than look good.</h2>
       </div>
 
@@ -62,7 +53,6 @@
     </section>
 
     <section class="process-section">
-      <span class="section-label">OUR PROCESS</span>
       <h2>How we deliver your web project</h2>
 
       <div class="process-grid">
@@ -78,7 +68,6 @@
 
     <section class="featured-section">
       <div class="featured-card">
-        <span class="section-label">FEATURED USE CASE</span>
         <h2>From brochure website to business platform</h2>
 
         <p>
@@ -87,7 +76,7 @@
           This lets your business launch quickly without limiting future growth.
         </p>
 
-        <a routerLink="/contact" class="primary-btn">Discuss Your Website</a>
+        <a routerLink="/contact" class="btn-primary">Discuss Your Website</a>
       </div>
     </section>
 

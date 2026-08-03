@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 // =============================================================
-// Indomisa design tokens
-// Light theme = default (:root). Dark theme = .dark class on <html>,
-// toggled by ThemeService (src/app/services/theme.service.ts).
+// Indomisa design tokens — light theme only.
 // Every Tailwind color in tailwind.config.js reads these variables,
 // so components using bg-background/text-foreground/bg-primary/etc.
-// re-theme automatically — no per-component changes needed.
+// pick them up automatically — no per-component changes needed.
 // =============================================================
 
 :root {
-  // Light theme — clean navy/blue on white, no purple, no neon glow.
-  --background: 220 23% 97%;        // page canvas
+  // Canvas sits a deliberate step duller than card, so white surfaces
+  // (cards, panels, inputs) read as genuinely lifted instead of blending
+  // into the page — the gap between --background and --card is the pop.
+  --background: 220 15% 90%;        // page canvas — dulled grey, not white
   --foreground: 222 47% 8%;         // primary text
   --card: 0 0% 100%;                // surfaces: cards, dropdowns, inputs
   --card-foreground: 222 47% 8%;
@@ -21,28 +21,33 @@
   --primary-foreground: 0 0% 100%;
   --accent: 224 76% 53%;            // signal blue — links, active states
   --accent-foreground: 0 0% 100%;
-  --muted: 220 20% 93%;
-  --muted-foreground: 220 9% 40%;
-  --border: 220 16% 88%;
+
+  // Contrast-safe variants for text/icons drawn directly on top of primary
+  // or accent (solid-fill CTAs, marker badges) — kept separate from the
+  // base tokens above so links/glow/borders keep their brighter values.
+  --primary-contrast: var(--primary);
+  --muted: 220 16% 94%;
+  --muted-foreground: 220 12% 27%;  // darkened for real pop against card/canvas — was too faint at 40% lightness
+  --border: 220 13% 80%;
   --destructive: 4 76% 55%;         // form errors / validation
   --destructive-foreground: 0 0% 100%;
-}
 
-.dark {
-  // Dark theme — deep navy canvas, same brand hues re-tuned for contrast.
-  --background: 222 47% 7%;
-  --foreground: 210 20% 95%;
-  --card: 222 39% 11%;
-  --card-foreground: 210 20% 95%;
-  --primary: 217 60% 32%;
-  --primary-foreground: 0 0% 100%;
-  --accent: 221 83% 65%;
-  --accent-foreground: 222 47% 8%;
-  --muted: 222 30% 15%;
-  --muted-foreground: 220 15% 65%;
-  --border: 222 25% 18%;
-  --destructive: 4 70% 62%;
-  --destructive-foreground: 0 0% 100%;
+  // Radius scale — every rounded-* Tailwind utility and every hardcoded
+  // border-radius across page-level SCSS resolves to these so cards,
+  // chips and panels sit on one consistent scale instead of drifting
+  // between arbitrary 8/10/16/24px values per page.
+  --radius-xs: 8px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  // Elevation — real dual-layer shadows (dark offset + accent glow)
+  // rather than a glow-only haze, so panels read as lifted surfaces.
+  --shadow-sm: 0 1px 2px hsl(222 47% 8% / 0.08), 0 1px 1px hsl(222 47% 8% / 0.05);
+  --shadow-md: 0 10px 28px hsl(222 47% 8% / 0.13), 0 2px 8px hsl(222 47% 8% / 0.07);
+  --shadow-lg: 0 24px 56px hsl(222 47% 8% / 0.17), 0 6px 16px hsl(222 47% 8% / 0.08);
+  --shadow-glow: 0 0 40px hsl(var(--accent) / 0.14);
 }
 
 html {
@@ -55,4 +60,147 @@ body {
   color: hsl(var(--foreground));
   font-family: 'IBM Plex Sans', Inter, sans-serif;
   transition: background-color .2s ease, color .2s ease;
+}
+
+// =============================================================
+// Shared component classes — referenced across many page templates
+// (hero, about, about-preview, differentiator-section, business-analysis,
+// software-development, web-development, faq) so they live once here
+// rather than duplicated per component.
+// =============================================================
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.75rem;
+    border-radius: 999px;
+    border: none;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    text-decoration: none;
+    color: hsl(var(--primary-foreground));
+    background: hsl(var(--primary));
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      background: hsl(var(--accent));
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus-visible {
+      outline: 2px solid hsl(var(--accent));
+      outline-offset: 3px;
+    }
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.75rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    text-decoration: none;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card) / 0.4);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      border-color: hsl(var(--accent) / 0.5);
+      background: hsl(var(--accent) / 0.08);
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid hsl(var(--accent));
+      outline-offset: 3px;
+    }
+  }
+
+  .index-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.6rem;
+    height: 1.75rem;
+    padding: 0 0.5rem;
+    border: 1px solid hsl(var(--accent) / 0.35);
+    border-radius: var(--radius-xs);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: hsl(var(--accent));
+    background: hsl(var(--accent) / 0.06);
+  }
+
+  // Scroll-reveal: RevealOnScrollDirective toggles these two classes on
+  // intersection. No-ops (visible immediately) under reduced motion.
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(.16,.84,.44,1),
+                transform 0.7s cubic-bezier(.16,.84,.44,1);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  // Signature "viewfinder" frame — two corner brackets marking a panel
+  // as an instrument reading. Reserved for the hero terminal only —
+  // duplicating it elsewhere dilutes the "one instrument reading" effect.
+  .ix-frame {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    &::before {
+      top: -10px;
+      left: -10px;
+      border-top: 2px solid hsl(var(--accent));
+      border-left: 2px solid hsl(var(--accent));
+    }
+
+    &::after {
+      bottom: -10px;
+      right: -10px;
+      border-bottom: 2px solid hsl(var(--accent));
+      border-right: 2px solid hsl(var(--accent));
+    }
+  }
 }

@@ -17,8 +17,7 @@
   <link rel="icon" type="image/x-icon" href="./assets/logo_o_dark.png">
 
   <!-- THEME: brand color used by mobile browser chrome (address bar, task
-       switcher). Kept as the navy primary so it reads consistently even
-       when the page itself is in light mode. -->
+       switcher). -->
   <meta name="theme-color" content="#0E2A57">
 
   <!-- SEO: Open Graph / Twitter defaults, overridden per-route -->
@@ -34,7 +33,7 @@
        falling back to the OS default font. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <!-- SEO: Organization structured data. Static in the document head
        (rather than injected by Angular) so it is present immediately for
@@ -70,17 +69,6 @@
   gtag('config', 'G-3MGRERM4PP');
 </script>
 <body>
-  <!-- THEME: sets light/dark before Angular boots to avoid a flash of
-       the wrong theme on load. Mirrors ThemeService's own logic. -->
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('indomisa-theme');
-        var isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (isDark) document.documentElement.classList.add('dark');
-      } catch (e) {}
-    })();
-  </script>
   <app-root></app-root>
 </body>
 </html>

@@ -1,64 +1,119 @@
-<section id= "hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 font-inter">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24 font-inter">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
 
-  <app-particle-field></app-particle-field>
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div appReveal class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 mb-8">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          <span class="text-sm text-muted-foreground">
+            Custom Software for Growing Businesses
+          </span>
+        </div>
 
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(37,86,224,0.16),transparent)]"></div>
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgba(37,86,224,0.08),transparent)]"></div>
+        <h1 appReveal [appRevealDelay]="80" class="hero-display font-syne font-bold tracking-tight mb-5">
+          Build Better<br>
+          <span class="text-accent">
+            Digital Systems
+          </span>
+        </h1>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-    <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 mb-8">
-      
-      <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-      <span class="text-sm text-muted-foreground">
-        Custom Software for Growing Businesses
-      </span>
-    </div>
+        <p appReveal [appRevealDelay]="160" class="hero-copy-measure text-base text-muted-foreground leading-7 mb-8">
+          We design and develop custom web and mobile applications that help businesses automate processes,
+          improve efficiency, and scale with confidence.
+        </p>
 
-    <h1 class="font-syne text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-      Build Better
-      <span class="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-        Digital Systems
-      </span>
-    </h1>
+        <div appReveal [appRevealDelay]="240" class="flex flex-col sm:flex-row items-start gap-4 mb-12">
+          <a (click)="trackHeroCTA()"
+            routerLink="/contact"
+            class="btn-primary !px-8 !py-4 !text-base">
+            Start Your Project
+          </a>
 
-    <p class="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
-      We design and develop custom web and mobile applications that help businesses automate processes,
-      improve efficiency, and scale with confidence.
-    </p>
+          <a
+            routerLink="/services"
+            class="btn-ghost !px-8 !py-4 !text-base">
+            View Services
+          </a>
+        </div>
 
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a (click)="trackHeroCTA()"
-        routerLink ="/contact"
-        class="rounded-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all">
-        Start Your Project
-      </a>
-
-      <a
-        routerLink="/services"
-        class="rounded-full px-8 py-4 border border-border/60 bg-card/50 backdrop-blur-xl text-foreground font-semibold hover:bg-card/80 transition-all">
-        View Services
-      </a>
-    </div>
-
-    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-      <div class="rounded-2xl border border-border/40 bg-card/40 backdrop-blur-xl p-5">
-        <p class="font-syne text-3xl font-bold text-primary">7+</p>
-        <p class="text-sm text-muted-foreground mt-1">Years Experience</p>
+        <!-- Terminal -->
+        <div appReveal [appRevealDelay]="320" class="ix-frame rounded-lg border border-border/40 bg-card/30 backdrop-blur-md p-4 font-mono text-sm text-muted-foreground shadow-[var(--shadow-md)]" aria-hidden="true">
+          <div class="flex gap-2 mb-3 pb-3 border-b border-border/20">
+            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            <span class="text-xs text-muted-foreground ml-2 tracking-[0.16em] uppercase">indomisa — zsh</span>
+          </div>
+          <div class="text-primary">
+            <span class="text-muted-foreground">&gt;</span> <span class="text-foreground">{{ typewriterText }}</span><span class="animate-pulse">|</span>
+          </div>
+        </div>
       </div>
 
-      <div class="rounded-2xl border border-border/40 bg-card/40 backdrop-blur-xl p-5">
-        <p class="font-syne text-3xl font-bold text-accent">24/7</p>
-        <p class="text-sm text-muted-foreground mt-1">Support Ready</p>
-      </div>
+      <!-- RIGHT: Visual + Stats -->
+      <div appReveal [appRevealDelay]="160" class="relative">
+        <div class="relative rounded-2xl overflow-hidden border border-primary/30 bg-card/40 backdrop-blur-xl aspect-square p-8 flex items-center justify-center">
+          <span class="absolute top-5 left-6 font-mono text-[0.65rem] tracking-[0.16em] uppercase text-muted-foreground">
+            system.map
+          </span>
 
-      <div class="rounded-2xl border border-border/40 bg-card/40 backdrop-blur-xl p-5">
-        <p class="font-syne text-3xl font-bold text-primary">100%</p>
-        <p class="text-sm text-muted-foreground mt-1">Custom Built</p>
-      </div>
+          <svg viewBox="0 0 400 430" class="w-full h-full max-w-sm" aria-hidden="true">
+            <g fill="none" stroke="hsl(var(--accent))" stroke-opacity="0.35" stroke-width="2" stroke-linejoin="round">
+              <path d="M108,80 L108,106 L292,106 L292,132"/>
+              <path d="M292,188 L292,214 L108,214 L108,240"/>
+              <path d="M108,296 L108,322 L292,322 L292,348"/>
+            </g>
 
-      <div class="rounded-2xl border border-border/40 bg-card/40 backdrop-blur-xl p-5">
-        <p class="font-syne text-3xl font-bold text-accent">SME</p>
-        <p class="text-sm text-muted-foreground mt-1">Focused</p>
+            <g fill="hsl(var(--accent))">
+              <circle cx="108" cy="106" r="3.5" fill-opacity="0.5"/>
+              <circle cx="292" cy="106" r="3.5" fill-opacity="0.5"/>
+              <circle cx="292" cy="214" r="3.5" fill-opacity="0.5"/>
+              <circle cx="108" cy="214" r="3.5" fill-opacity="0.5"/>
+              <circle cx="108" cy="322" r="3.5" fill-opacity="0.5"/>
+              <circle cx="292" cy="322" r="4" class="animate-pulse"/>
+            </g>
+
+            <g font-family="'IBM Plex Mono', ui-monospace, monospace">
+              <rect x="24" y="24" width="168" height="56" rx="10" fill="hsl(var(--card))" fill-opacity="0.7" stroke="hsl(var(--border))"/>
+              <text x="40" y="46" font-size="10" letter-spacing="1.5" fill="hsl(var(--accent))">01</text>
+              <text x="40" y="65" font-size="13" font-weight="600" letter-spacing="1" fill="hsl(var(--foreground))">INTAKE</text>
+
+              <rect x="208" y="132" width="168" height="56" rx="10" fill="hsl(var(--card))" fill-opacity="0.7" stroke="hsl(var(--border))"/>
+              <text x="224" y="154" font-size="10" letter-spacing="1.5" fill="hsl(var(--accent))">02</text>
+              <text x="224" y="173" font-size="13" font-weight="600" letter-spacing="1" fill="hsl(var(--foreground))">PROCESS</text>
+
+              <rect x="24" y="240" width="168" height="56" rx="10" fill="hsl(var(--card))" fill-opacity="0.7" stroke="hsl(var(--border))"/>
+              <text x="40" y="262" font-size="10" letter-spacing="1.5" fill="hsl(var(--accent))">03</text>
+              <text x="40" y="281" font-size="13" font-weight="600" letter-spacing="1" fill="hsl(var(--foreground))">AUTOMATE</text>
+
+              <rect x="208" y="348" width="168" height="56" rx="10" fill="hsl(var(--card))" fill-opacity="0.7" stroke="hsl(var(--border))"/>
+              <text x="224" y="370" font-size="10" letter-spacing="1.5" fill="hsl(var(--accent))">04</text>
+              <text x="224" y="389" font-size="13" font-weight="600" letter-spacing="1" fill="hsl(var(--foreground))">DELIVER</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-6">
+          <div class="rounded-lg border border-border/40 bg-card/50 backdrop-blur-md p-4">
+            <p class="font-syne text-3xl font-bold text-primary-contrast tracking-tight">7+</p>
+            <p class="text-xs text-muted-foreground mt-1">Years Experience</p>
+          </div>
+
+          <div class="rounded-lg border border-border/40 bg-card/50 backdrop-blur-md p-4">
+            <p class="font-syne text-3xl font-bold text-accent tracking-tight">24/7</p>
+            <p class="text-xs text-muted-foreground mt-1">Support Ready</p>
+          </div>
+
+          <div class="rounded-lg border border-border/40 bg-card/50 backdrop-blur-md p-4">
+            <p class="font-syne text-3xl font-bold text-primary-contrast tracking-tight">100%</p>
+            <p class="text-xs text-muted-foreground mt-1">Custom Built</p>
+          </div>
+
+          <div class="rounded-lg border border-border/40 bg-card/50 backdrop-blur-md p-4">
+            <p class="font-syne text-3xl font-bold text-accent tracking-tight">SME</p>
+            <p class="text-xs text-muted-foreground mt-1">Focused</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

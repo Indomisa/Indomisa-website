@@ -1,14 +1,22 @@
 module.exports = {
-  // THEME: manual light/dark toggling — ThemeService adds/removes the
-  // 'dark' class on <html>, and every color below flips with it because
-  // each one reads from a CSS custom property re-declared under .dark
-  // in styles.scss.
-  darkMode: 'class',
   content: [
     "./src/**/*.{html,ts}"
   ],
   theme: {
     extend: {
+      borderRadius: {
+        // Collapses Tailwind's default rounded-* scale onto the same
+        // --radius-* custom properties used by hardcoded page SCSS, so
+        // rounded-lg/2xl/3xl utilities and hand-rolled cards land on one
+        // consistent physical scale instead of drifting per page.
+        sm: 'var(--radius-xs)',
+        DEFAULT: 'var(--radius-xs)',
+        md: 'var(--radius-sm)',
+        lg: 'var(--radius-md)',
+        xl: 'var(--radius-lg)',
+        '2xl': 'var(--radius-xl)',
+        '3xl': 'var(--radius-xl)',
+      },
       fontFamily: {
         // Class names kept as-is (font-inter / font-syne) so no template
         // changes were needed elsewhere — only the underlying typefaces
@@ -26,6 +34,7 @@ module.exports = {
         'primary-foreground': 'hsl(var(--primary-foreground))',
         accent: 'hsl(var(--accent))',
         'accent-foreground': 'hsl(var(--accent-foreground))',
+        'primary-contrast': 'hsl(var(--primary-contrast))',
         muted: 'hsl(var(--muted))',
         'muted-foreground': 'hsl(var(--muted-foreground))',
         border: 'hsl(var(--border))',

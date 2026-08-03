@@ -1,3 +1,15 @@
 :host {
   display: block;
 }
+
+// Hero display heading: a fluid, slightly larger clamp than the site's
+// standard heading scale, paired with a tighter body measure — a bigger
+// jump between display and body than the rest of the site uses.
+.hero-display {
+  font-size: clamp(2.5rem, 6vw, 5.33rem);
+  line-height: 0.95;
+}
+
+.hero-copy-measure {
+  max-width: 40ch;
+}

@@ -1,0 +1,32 @@
+:host {
+  display: contents;
+}
+
+// Fixed schematic-grid backdrop: a faint blueprint grid with a couple of
+// circuit traces, tiled behind the whole app. Vignetted so it reads
+// strongest near the top of the viewport and fades into the page canvas,
+// rather than sitting at a flat opacity edge-to-edge.
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 70% 55% at 50% 0%, hsl(var(--accent) / 0.06), transparent 65%),
+    url('/assets/backgrounds/schematic-grid.svg');
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 280px 280px;
+  background-position: center top, 0 0;
+  animation: site-bg-drift 240s linear infinite;
+}
+
+@keyframes site-bg-drift {
+  from { background-position: center top, 0 0; }
+  to { background-position: center top, 280px 280px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-bg {
+    animation: none;
+  }
+}

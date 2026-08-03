@@ -14,7 +14,6 @@ export type FaqItem = {
 export class FaqComponent {
   @Input({ required: true }) items: FaqItem[] = [];
 
-  @Input() label = 'FAQ';
   @Input() title = 'Frequently asked questions';
   @Input() allowMultipleOpen = false;
 

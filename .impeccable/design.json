@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-31T00:00:00.000Z",
+  "title": "Design System: Indomisa Consulting",
+  "extensions": {
+    "colorMeta": {
+      "midnight-hull": {
+        "role": "primary",
+        "displayName": "Midnight Hull",
+        "canonical": "hsl(217 68% 20%)",
+        "tonalRamp": [
+          "hsl(217 68% 12%)",
+          "hsl(217 68% 18%)",
+          "hsl(217 68% 24%)",
+          "hsl(217 68% 32%)",
+          "hsl(217 68% 42%)",
+          "hsl(217 68% 55%)",
+          "hsl(217 68% 72%)",
+          "hsl(217 68% 90%)"
+        ]
+      },
+      "beacon-blue": {
+        "role": "secondary",
+        "displayName": "Beacon Blue",
+        "canonical": "hsl(224 76% 53%)",
+        "tonalRamp": [
+          "hsl(224 76% 15%)",
+          "hsl(224 76% 25%)",
+          "hsl(224 76% 35%)",
+          "hsl(224 76% 45%)",
+          "hsl(224 76% 53%)",
+          "hsl(224 76% 65%)",
+          "hsl(224 76% 78%)",
+          "hsl(224 76% 92%)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "canonical": "hsl(220 23% 97%)",
+        "tonalRamp": [
+          "hsl(222 47% 7%)",
+          "hsl(220 25% 20%)",
+          "hsl(220 22% 40%)",
+          "hsl(220 20% 60%)",
+          "hsl(220 20% 80%)",
+          "hsl(220 22% 90%)",
+          "hsl(220 23% 94%)",
+          "hsl(220 23% 97%)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "hsl(222 47% 8%)",
+        "tonalRamp": [
+          "hsl(222 47% 8%)",
+          "hsl(222 40% 18%)",
+          "hsl(220 30% 32%)",
+          "hsl(220 20% 48%)",
+          "hsl(220 15% 65%)",
+          "hsl(220 15% 80%)",
+          "hsl(210 20% 90%)",
+          "hsl(210 20% 95%)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "hsl(0 0% 100%)",
+        "tonalRamp": [
+          "hsl(222 39% 11%)",
+          "hsl(222 30% 20%)",
+          "hsl(220 20% 35%)",
+          "hsl(220 10% 55%)",
+          "hsl(220 5% 75%)",
+          "hsl(0 0% 88%)",
+          "hsl(0 0% 95%)",
+          "hsl(0 0% 100%)"
+        ]
+      },
+      "surface-muted": {
+        "role": "neutral",
+        "displayName": "Surface Muted",
+        "canonical": "hsl(220 20% 93%)",
+        "tonalRamp": [
+          "hsl(222 30% 15%)",
+          "hsl(220 25% 25%)",
+          "hsl(220 20% 40%)",
+          "hsl(220 18% 60%)",
+          "hsl(220 20% 78%)",
+          "hsl(220 20% 88%)",
+          "hsl(220 20% 91%)",
+          "hsl(220 20% 93%)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "hsl(220 9% 40%)",
+        "tonalRamp": [
+          "hsl(220 15% 20%)",
+          "hsl(220 12% 30%)",
+          "hsl(220 10% 40%)",
+          "hsl(220 9% 40%)",
+          "hsl(220 12% 55%)",
+          "hsl(220 15% 65%)",
+          "hsl(220 15% 78%)",
+          "hsl(220 15% 90%)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "hsl(220 16% 88%)",
+        "tonalRamp": [
+          "hsl(222 25% 18%)",
+          "hsl(220 22% 30%)",
+          "hsl(220 18% 45%)",
+          "hsl(220 16% 60%)",
+          "hsl(220 16% 75%)",
+          "hsl(220 16% 84%)",
+          "hsl(220 16% 88%)",
+          "hsl(220 16% 94%)"
+        ]
+      },
+      "alert": {
+        "role": "error",
+        "displayName": "Alert",
+        "canonical": "hsl(4 76% 55%)",
+        "tonalRamp": [
+          "hsl(4 76% 20%)",
+          "hsl(4 76% 30%)",
+          "hsl(4 76% 40%)",
+          "hsl(4 76% 48%)",
+          "hsl(4 76% 55%)",
+          "hsl(4 70% 62%)",
+          "hsl(4 70% 75%)",
+          "hsl(4 70% 90%)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero and top-of-page H1s only." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, always in Muted Ink." },
+      "label": { "displayName": "Label", "purpose": "Section labels and index badges, mono, always Beacon Blue." }
+    },
+    "shadows": [
+      { "name": "shadow-sm", "value": "0 1px 2px hsl(222 47% 8% / 0.06), 0 1px 1px hsl(222 47% 8% / 0.04)", "purpose": "Resting cards, subtle separation." },
+      { "name": "shadow-md", "value": "0 10px 28px hsl(222 47% 8% / 0.10), 0 2px 8px hsl(222 47% 8% / 0.06)", "purpose": "Stat cards, terminal panel, standard lifted surfaces." },
+      { "name": "shadow-lg", "value": "0 24px 56px hsl(222 47% 8% / 0.14), 0 6px 16px hsl(222 47% 8% / 0.07)", "purpose": "Hover states, the contact form panel." },
+      { "name": "shadow-glow", "value": "0 0 40px hsl(var(--accent) / 0.14)", "purpose": "Paired with shadow-md/lg on anything that should read as live." }
+    ],
+    "motion": [
+      { "name": "reveal-ease", "value": "cubic-bezier(.16,.84,.44,1)", "purpose": "Scroll-reveal translate+fade entrance, 0.7s, staggered ~80ms per sibling." },
+      { "name": "hover-ease", "value": "ease", "purpose": "Standard 0.25s hover transition for lift, border-color, background." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "content-collapse", "value": "900px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action pill button; navy-to-signal-blue gradient with dual shadow + glow.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Start Your Project</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.9rem 1.75rem; border-radius: 999px; border: none; font-weight: 600; font-size: 0.95rem; line-height: 1; text-decoration: none; color: #fff; background: linear-gradient(135deg, hsl(217 68% 20%), hsl(224 76% 53%)); box-shadow: 0 10px 28px hsl(222 47% 8% / 0.10), 0 2px 8px hsl(222 47% 8% / 0.06), 0 0 40px hsl(224 76% 53% / 0.14); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease; } .ds-btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 24px 56px hsl(222 47% 8% / 0.14), 0 6px 16px hsl(222 47% 8% / 0.07), 0 0 40px hsl(224 76% 53% / 0.14); } .ds-btn-primary:focus-visible { outline: 2px solid hsl(224 76% 53%); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary pill button; translucent glass surface with hairline border.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">View Services</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.75rem; border-radius: 999px; font-weight: 600; font-size: 0.95rem; line-height: 1; text-decoration: none; color: hsl(222 47% 8%); border: 1px solid hsl(220 16% 88%); background: hsl(0 0% 100% / 0.4); backdrop-filter: blur(8px); cursor: pointer; transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease; } .ds-btn-ghost:hover { border-color: hsl(224 76% 53% / 0.5); background: hsl(224 76% 53% / 0.08); transform: translateY(-2px); } .ds-btn-ghost:focus-visible { outline: 2px solid hsl(224 76% 53%); outline-offset: 3px; }"
+    },
+    {
+      "name": "Stat Card",
+      "kind": "card",
+      "refersTo": "card-primary",
+      "description": "Numeric stat tile used in hero and about-page stat grids.",
+      "html": "<div class=\"ds-stat-card\"><p class=\"ds-stat-value\">7+</p><p class=\"ds-stat-label\">Years Experience</p></div>",
+      "css": ".ds-stat-card { background: hsl(0 0% 100%); border: 1px solid hsl(220 16% 88%); border-radius: 10px; padding: 32px; box-shadow: 0 10px 28px hsl(222 47% 8% / 0.10), 0 2px 8px hsl(222 47% 8% / 0.06), 0 0 50px hsl(217 68% 20% / 0.12); transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; } .ds-stat-card:hover { transform: translateY(-6px); border-color: hsl(224 76% 53% / 0.4); box-shadow: 0 24px 56px hsl(222 47% 8% / 0.14), 0 6px 16px hsl(222 47% 8% / 0.07); } .ds-stat-value { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 2.6rem; color: hsl(217 68% 20%); margin: 0 0 10px; } .ds-stat-label { font-family: 'IBM Plex Sans', sans-serif; color: hsl(220 9% 40%); margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Form field used in the staged contact form.",
+      "html": "<label class=\"ds-label\">Business name<input class=\"ds-input\" type=\"text\" placeholder=\"Company name\"></label>",
+      "css": ".ds-label { display: grid; gap: 10px; color: hsl(222 47% 8%); font-weight: 700; } .ds-input { width: 100%; background: hsl(0 0% 100%); color: hsl(222 47% 8%); border: 1px solid hsl(220 16% 88%); border-radius: 10px; padding: 15px 16px; font: inherit; outline: none; transition: border-color 0.2s ease; } .ds-input:focus { border-color: hsl(224 76% 53%); }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Mono uppercase eyebrow label preceding every major section heading.",
+      "html": "<span class=\"ds-section-label\">CONTACT US</span>",
+      "css": ".ds-section-label { display: inline-flex; align-items: center; gap: 0.6em; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: hsl(224 76% 53%); } .ds-section-label::before { content: ''; width: 0.9em; height: 1px; background: hsl(224 76% 53% / 0.6); }"
+    },
+    {
+      "name": "Index Badge",
+      "kind": "chip",
+      "refersTo": "index-badge",
+      "description": "Numbered mono badge used to index feature/info cards (01, 02...).",
+      "html": "<span class=\"ds-index-badge\">01</span>",
+      "css": ".ds-index-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 2.6rem; height: 1.75rem; padding: 0 0.5rem; border: 1px solid hsl(224 76% 53% / 0.35); border-radius: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: hsl(224 76% 53%); background: hsl(224 76% 53% / 0.06); }"
+    },
+    {
+      "name": "Info Card",
+      "kind": "card",
+      "refersTo": "card-primary",
+      "description": "Indexed feature card used in 'Why Us' style grids.",
+      "html": "<article class=\"ds-info-card\"><span class=\"ds-index-badge\">01</span><h3>Fit over convenience</h3><p>Software matched to how your business actually works.</p></article>",
+      "css": ".ds-info-card { background: hsl(0 0% 100%); border: 1px solid hsl(220 16% 88%); border-radius: 10px; padding: 32px; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; } .ds-info-card:hover { transform: translateY(-6px); border-color: hsl(224 76% 53% / 0.4); box-shadow: 0 24px 56px hsl(222 47% 8% / 0.14), 0 6px 16px hsl(222 47% 8% / 0.07); } .ds-info-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; margin: 12px 0 8px; } .ds-info-card p { font-family: 'IBM Plex Sans', sans-serif; color: hsl(220 9% 40%); margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Engineering Desk",
+    "overview": "Indomisa reads like the desk of a precision engineer working late: a deep navy field, one signal-blue instrument light left on, and everything else deliberately quiet so that light means something. The site is B2B software engineering communicated visually — not a marketing stunt, not a generic gradient template. Copy stays plain and confident (\"Stop forcing your business into generic tools\"); the interface backs that up with instrumentation cues instead of decoration: a live terminal typing itself out in the hero, corner-bracket \"viewfinder\" frames on a handful of key panels, monospace index badges and section labels, and a starfield/particle backdrop that reads as ambient telemetry rather than a hero graphic.\n\nWithin that calm field, the system is tactile and alive rather than static: cards lift on hover, borders warm to signal-blue, dual-layer shadows (a dark structural offset plus an accent glow) make glass surfaces feel genuinely lifted, and backdrop-blur is used generously so panels feel like physical glass over the starfield, not flat rectangles. The result should feel engineered and awake, never playful or soft. Explicitly rejected: the generic SaaS purple/pink-gradient template look — no purple, no blob shapes, no neon haze. Indomisa's only glow is navy-to-signal-blue, and it appears because something is active (a button, a stat, a live cursor), not as ambient decoration.",
+    "keyCharacteristics": [
+      "One accent color (Beacon Blue) carries all \"this is active/important\" signaling — pulses, links, focus rings, hover borders, glow.",
+      "Instrumentation motifs (terminal, viewfinder brackets, mono labels, index badges) are a signature, used sparingly on a few key panels, not everywhere.",
+      "Every surface responds to hover or focus — lift, border-warm, or glow — so nothing on the page reads as inert.",
+      "Full light/dark parity: every token is a CSS custom property that flips under .dark, re-tuned for contrast rather than simply darkened."
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Beacon Blue is the only color allowed to mean \"active\" — pulses, focus, hover, links, glow. If a second hue starts carrying meaning, the system has drifted.", "section": "colors" },
+      { "name": "The Themed-Pair Rule", "body": "Every color ships as a light/dark pair tuned independently for contrast (dark mode is not light mode with inverted lightness). A new color token is incomplete without both.", "section": "colors" },
+      { "name": "The Mono-Means-System Rule", "body": "IBM Plex Mono is reserved for things that look machine-generated or instrumentation-like (labels, badges, the terminal, stat captions) — never for prose.", "section": "typography" },
+      { "name": "The Lift-On-Hover Rule", "body": "Cards and buttons don't just brighten on hover — they physically translate up (2–6px) while their shadow deepens. A hover that only changes color is under-built for this system.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Beacon Blue as the only color that signals \"active\" (links, focus, hover borders, glow, the hero pulse dot).",
+      "Do pair every new surface with a hover response — lift, border-warm, or glow — consistent with the Lift-On-Hover Rule.",
+      "Do use the 5-step radius scale (8/10/14/18/24px) and full-pill (999px) for anything clickable; never hardcode an arbitrary radius.",
+      "Do reserve IBM Plex Mono for system/instrumentation text (labels, badges, terminal, stat captions).",
+      "Do define every new color as a light/dark pair in styles.scss, tuned independently for contrast."
+    ],
+    "donts": [
+      "Don't introduce a third brand hue (purple, teal, etc.) — the system is strictly navy + signal-blue + neutrals.",
+      "Don't reach for the generic SaaS purple/pink gradient or blob-shape aesthetic; Indomisa's only glow is the navy-to-accent gradient, motivated by \"this is active,\" not decoration.",
+      "Don't apply the .ix-frame corner-bracket treatment broadly — it marks a small number of signature \"instrument\" panels, and loses meaning if it becomes a generic card decoration.",
+      "Don't fabricate testimonials, client logos, or case-study results in component examples — no real ones exist yet; placeholder content must read as illustrative.",
+      "Don't use Space Grotesk or mono for long-form body copy; body text stays in IBM Plex Sans at Muted Ink."
+    ]
+  }
+}

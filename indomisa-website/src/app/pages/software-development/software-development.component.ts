@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaqComponent, FaqItem } from '../../shared/components/faq/faq.component';
 import { SeoService } from '../../services/seo.service';
+import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { padIndex } from '../../shared/util/pad-index';
 
 type ServiceItem = {
   title: string;
@@ -22,11 +24,12 @@ type TechItem = {
 @Component({
   selector: 'app-software-development',
   standalone: true,
-  imports: [RouterLink, FaqComponent],
+  imports: [RouterLink, FaqComponent, RevealOnScrollDirective],
   templateUrl: './software-development.component.html',
   styleUrl: './software-development.component.scss',
 })
 export class SoftwareDevelopmentComponent implements OnInit {
+  protected padIndex = padIndex;
   protected readonly services: ServiceItem[] = [
     {
       title: 'Custom Business Systems',

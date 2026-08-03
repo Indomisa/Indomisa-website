@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "5.33rem",
+        "createdAt": "2026-07-31T13:40:32.776Z",
+        "reason": "User confirmed 5.33rem via live-mode accept for the hero display heading"
+      }
+    ]
+  }
+}

@@ -1,131 +1,43 @@
-<section
-    id="process"
-    class="relative py-24 overflow-hidden">
+<section id="process" class="relative py-24 overflow-hidden font-inter">
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 appReveal class="font-syne text-5xl font-bold mb-6">
+        How We Deliver Success
+      </h2>
 
-    <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(120,80,255,0.06),transparent)]">
+      <p appReveal [appRevealDelay]="160" class="text-muted-foreground max-w-2xl mx-auto text-lg">
+        Every successful project follows a proven process that ensures
+        quality, transparency, and exceptional results.
+      </p>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-6">
+    <div class="relative max-w-2xl mx-auto">
+      <!-- Timeline line background -->
+      <div class="timeline-line" aria-hidden="true">
+        <div class="timeline-line-fill"></div>
+        <div class="timeline-light"></div>
+      </div>
 
-        <div class="text-center mb-20">
-
-            <span
-                class="uppercase tracking-[0.3em] text-accent text-sm font-semibold">
-
-                OUR PROCESS
-
-            </span>
-
-            <h2
-                class="font-syne text-5xl font-bold mt-4 mb-6">
-
-                How We Deliver Success
-
-            </h2>
-
-            <p
-                class="text-muted-foreground max-w-3xl mx-auto text-lg">
-
-                Every successful project follows a proven process that ensures
-                quality, transparency, and exceptional results.
-
-            </p>
-
-        </div>
-
-        <div class="grid lg:grid-cols-4 gap-8">
-
-            @for(step of steps; track step.number){
-
-            <div
-                class="relative">
-
-                <div
-                    class="rounded-3xl
-                           border
-                           border-border/40
-                           bg-card/50
-                           backdrop-blur-xl
-                           p-8
-                           h-full
-                           transition-all
-                           duration-300
-                           hover:border-primary/40
-                           hover:-translate-y-2">
-
-                    <div
-                        class="w-16
-                               h-16
-                               rounded-2xl
-                               bg-gradient-to-br
-                               from-primary
-                               to-accent
-                               flex
-                               items-center
-                               justify-center
-                               text-3xl
-                               mb-6">
-
-                        {{step.icon}}
-
-                    </div>
-
-                    <div
-                        class="text-primary
-                               text-sm
-                               font-bold
-                               tracking-widest
-                               mb-3">
-
-                        STEP {{step.number}}
-
-                    </div>
-
-                    <h3
-                        class="text-2xl
-                               font-bold
-                               font-syne
-                               mb-4">
-
-                        {{step.title}}
-
-                    </h3>
-
-                    <p
-                        class="text-muted-foreground
-                               leading-relaxed">
-
-                        {{step.description}}
-
-                    </p>
-
-                </div>
-
-                @if(!$last){
-
-                <div
-                    class="hidden
-                           lg:block
-                           absolute
-                           top-20
-                           left-full
-                           w-8
-                           h-0.5
-                           bg-gradient-to-r
-                           from-primary
-                           to-transparent">
-
-                </div>
-
-                }
-
+      <div class="space-y-8">
+        @for(step of steps; track step.number; let idx = $index) {
+          <div appReveal [appRevealDelay]="160 + idx * 80" class="timeline-step relative pl-20">
+            <!-- Timeline marker -->
+            <div class="step-marker absolute left-0 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold border-4 border-background">
+              {{ step.number }}
             </div>
 
-            }
-
-        </div>
-
+            <!-- Content -->
+            <div class="rounded-lg border border-border/40 bg-card/30 backdrop-blur-md p-6 transition-all duration-300 hover:border-primary/40 hover:bg-card/60">
+              <h3 class="font-syne text-xl font-bold text-foreground mb-3">
+                {{ step.title }}
+              </h3>
+              <p class="text-muted-foreground leading-relaxed">
+                {{ step.description }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
     </div>
-
+  </div>
 </section>
